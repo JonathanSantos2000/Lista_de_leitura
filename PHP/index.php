@@ -7,11 +7,11 @@ include 'header.php';
   ?>
   <main>
     <div class="conteudo">
-      <h1>Organize sua leitura por aqui</h1>
+      <h1>Organize sua leitura por aqui</h1><br><br>
       <p>&nbsp;&nbsp;&nbsp;&nbsp;Site criado para listar seus livros, Novels, Manga, Manhwa, Manhua que esta lendo, já
         leu
         ou gostaria de ler.</p>
-      <p>
+      <p><br>
         &nbsp;&nbsp;&nbsp;&nbsp;Lorem ipsum sem torquent cubilia dapibus bibendum quis viverra dolor, aenean felis eros phasellus sapien morbi
         nisi vel venenatis vivamus, neque commodo molestie quam curae pretium euismod ante.
         fringilla phasellus malesuada hendrerit per dui egestas ante netus dictum leo interdum pharetra, lacus blandit

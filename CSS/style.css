@@ -1,4 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+* {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: "Roboto Mono", monospace;
     background: linear-gradient(236.85deg, #041832 27.26%, #3468a7 96.03%);
@@ -7,26 +13,10 @@ body {
 .container {
     background: #ecf4ff;
     color: #1c1c1c;
-    margin: 64px;
     border-radius: 20px;
     box-shadow: 6px 6px #120d2e;
-    padding: 30px;
-}
-
-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(230.65deg, #499cfe 27.49%, #9cc8fc 83.19%);
-    box-shadow: 2px 2px 4px rgba(16, 16, 16, 0.42);
-    border-radius: 20px;
-    color: #1c1c1c;
-    height: auto;
-}
-
-main {
-    display: flex;
-    flex-direction: row;
+    margin: 30px;
+    padding: 20px;
 }
 
 .conteudo {
@@ -34,14 +24,10 @@ main {
     box-shadow: 2px 2px 4px rgba(16, 16, 16, 0.42);
     border-radius: 20px;
     color: #1c1c1c;
-    padding: 2%;
-    margin: 2%;
-    min-height: 600px;
+    min-height: 700px;
     width: 100%;
-}
-
-.titulo {
-    margin-left: 16px;
+    margin-top: 20px;
+    padding: 25px;
 }
 
 .titulo h1 {
@@ -59,7 +45,7 @@ footer {
     box-shadow: 2px 2px 4px rgba(16, 16, 16, 0.42);
     border-radius: 20px;
     color: #1c1c1c;
-    padding: 1px;
     text-align: right;
+    margin-top: 20px;
+    padding-right: 5px;
 }
-

@@ -1,51 +1,62 @@
- .menu .menu-list, .menu .sub-menu {
- 	list-style: none;
- }
+.menu {
+	border-radius: 20px;
+	background: linear-gradient(230.65deg, #499cfe 27.49%, #9cc8fc 83.19%);
+	box-shadow: 2px 2px 4px rgba(16, 16, 16, 0.42);
+}
 
- .menu a {
- 	color: #fff;
- 	text-decoration: none;
- 	display: block;
- 	cursor: pointer;
- 	text-transform: uppercase;
- 	font-size: 25px;
- 	font-weight: 700;
- 	letter-spacing: 0.2em;
- }
+.menu ul {
+	list-style-type: none;
+	padding: 0;
+}
 
- .menu>.menu-list>li {
- 	float: left;
- 	position: relative;
- }
+.menu .menu-list {
+	max-width: 800px;
+	background: linear-gradient(230.65deg, #499cfe 27.49%, #9cc8fc 83.19%);
+	border-radius: 20px;
+}
 
- .menu>.menu-list>li>a {
- 	padding: 20px;
- 	margin: 0 5px;
- }
+.menu ul li {
+	display: inline;
+	position: relative;
+}
 
- .menu>.menu-list>li:hover a {
- 	background: #9cc8fc;
- }
+.menu ul li a {
+	color: #fff;
+	text-decoration: none;
+	padding: 10px;
+	display: inline-block;
+	cursor: pointer;
+	text-transform: uppercase;
+	font-size: 25px;
+	font-weight: 700;
+	letter-spacing: 0.2em;
+}
 
- .menu>.menu-list>li:hover>.sub-menu {
- 	display: block;
- }
+.menu ul li a:hover {
+	background-color: dodgerblue;
+}
 
- .menu>.menu-list>li>.sub-menu {
- 	position: absolute;
- 	background: #3468a7;
- 	z-index: 1000;
- 	display: none;
- }
+.cadLog, .usuario {
+	float: right;
+}
 
- .menu>.menu-list>li>.sub-menu>li>a {
- 	padding: 10px 20px;
- }
+/*sub menu*/
 
- .site-content {
- 	padding: 10px;
- }
+.menu ul ul {
+	background: linear-gradient(230.65deg, #499cfe 27.49%, #9cc8fc 83.19%);
+	display: none;
+	left: 0;
+	position: absolute;
+}
 
- .usuario {
- 	text-align: left;
- }
+.menu ul li:hover ul {
+	display: block;
+}
+
+.menu ul ul {
+	width: auto;
+}
+
+.menu ul li ul li a {
+	display: block;
+}
