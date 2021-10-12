@@ -10,7 +10,7 @@ if ((!isset($_SESSION['username']) == true) and (!isset($_SESSION['password']) =
 ?>
 <header>
   <nav class="menu">
-    <ul class="menu-list">
+    <ul>
       <li><a href="../PHP/index.php">Home</a></li>
       <?php
 
