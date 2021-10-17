@@ -1,9 +1,8 @@
 .conteudoBox {
-  background: linear-gradient(230.65deg, #499cfe 27.49%, #9cc8fc 83.19%);
+  background: linear-gradient(180deg, #499cfe 27.49%, #9cc8fc 83.19%);
   box-shadow: 2px 2px 4px rgba(16, 16, 16, 0.42);
-  border-radius: 20px;
   color: #1c1c1c;
-  min-height: 600px;
+  min-height: 85vh;
   width: 100%;
   display: flex;
   justify-content: space-around;

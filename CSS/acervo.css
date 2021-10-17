@@ -1,3 +1,5 @@
+/*----------Acervo usuario----------*/
+
 .containerLivro {
   background: linear-gradient(230.65deg, #499cfe 27.49%, #9cc8fc 83.19%);
   ;
@@ -53,6 +55,32 @@
 .lineL {
   padding-right: 15px;
 }
+
+/*----------CSS Biblioteca----------*/
+
+.conteinerLivro {
+  border: 3px solid red;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  align-content: flex-start;
+  /* width: 100px; */
+}
+
+.bookObject {
+  border: 3px solid black;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  
+}
+
+.imgLivroBiclioteca img {
+  width: 300px;
+  justify-self: center;
+}
+
+/*----------Passar a pagina----------*/
 
 .navPagination {
   display: flex;

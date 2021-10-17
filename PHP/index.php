@@ -7,11 +7,11 @@ include 'header.php';
   ?>
   <main>
     <div class="conteudo">
-      <h1>Organize sua leitura por aqui</h1><br><br>
-      <p>&nbsp;&nbsp;&nbsp;&nbsp;Site criado para listar seus livros, Novels, Manga, Manhwa, Manhua que esta lendo, já
+      <h1 class="titulo-h1">Organize sua leitura por aqui</h1><br><br>
+      <p class="titulo-p">&nbsp;&nbsp;&nbsp;&nbsp;Site criado para listar seus livros, Novels, Manga, Manhwa, Manhua que esta lendo, já
         leu
         ou gostaria de ler.</p>
-      <p><br>
+      <p class="titulo-p"><br>
         &nbsp;&nbsp;&nbsp;&nbsp;Lorem ipsum sem torquent cubilia dapibus bibendum quis viverra dolor, aenean felis eros phasellus sapien morbi
         nisi vel venenatis vivamus, neque commodo molestie quam curae pretium euismod ante.
         fringilla phasellus malesuada hendrerit per dui egestas ante netus dictum leo interdum pharetra, lacus blandit
@@ -22,7 +22,7 @@ include 'header.php';
         eget laoreet ornare nam varius eros lacinia velit cursus suscipit tempus, felis aliquam ligula tellus mauris
         himenaeos aliquam duis lectus ac faucibus, pulvinar velit commodo justo accumsan sociosqu risus est consequat.
       </p>
-      <p>
+      <p class="titulo-p">
         &nbsp;&nbsp;&nbsp;&nbsp;Mauris a quisque sapien varius nam ullamcorper maecenas sollicitudin habitasse purus, ultricies quam curae
         viverra interdum aliquam donec etiam facilisis tempor sem, euismod tempus eleifend metus et lacus semper
         consectetur at.
@@ -33,7 +33,7 @@ include 'header.php';
         auctor mollis non egestas malesuada laoreet aliquam sagittis consequat, semper tincidunt suspendisse curabitur
         eros phasellus dui, pharetra quisque vivamus orci scelerisque urna inceptos.
       </p>
-      <p>
+      <p class="titulo-p">
         &nbsp;&nbsp;&nbsp;&nbsp;Primis risus sed volutpat aliquam ultrices fames litora egestas scelerisque, iaculis pretium malesuada nullam
         venenatis aliquet aliquam vehicula.
         fames diam fermentum ut ac ultrices ornare nam inceptos scelerisque congue, curae massa leo ipsum in curabitur
@@ -45,7 +45,7 @@ include 'header.php';
         duis elit ut id mollis molestie nunc habitant praesent, enim pulvinar maecenas mauris dictumst torquent purus,
         vivamus ipsum tortor tincidunt class praesent pellentesque.
       </p>
-      <p>
+      <p class="titulo-p">
         &nbsp;&nbsp;&nbsp;&nbsp;Vehicula blandit iaculis ullamcorper rutrum tellus erat nibh tincidunt, sociosqu senectus sed leo ut purus
         bibendum nunc, eu imperdiet cras nibh orci pharetra ante.
         in proin taciti orci tortor conubia, felis eu purus lacinia class hendrerit, dui dictum tempor sem.

@@ -61,32 +61,6 @@ $result_selecionar_livro = $conexao->query($selecionar_livro);
     ?>
     <main>
         <div class="containerLivro">
-            <?php
-            //verificar a pagina anterior e posterior
-            $pagina_anterior = $pagina - 1;
-            $pagina_posterior = $pagina + 1;
-            ?>
-            <div class="navPagination">
-                <ul class="pagination">
-                    <li>
-                        <?php
-                        if ($pagina_anterior != 0) { ?>
-                            <a href="../PHP/acervo_livros.php?pagina=<?php echo $pagina_anterior ?>">Anterior</a>
-                        <?php } ?>
-                    </li>
-                    <!-- Paginas -->
-                    <?php for ($i = 1; $i < $num_paginas + 1; $i++) { ?>
-                        <li><a href="../PHP/acervo_livros.php?pagina=<?php echo $i ?>"><?php echo $i ?></a></li>
-                    <?php } ?>
-                    <!-- Próximo -->
-                    <li>
-                        <?php
-                        if ($pagina_posterior <= $num_paginas) { ?>
-                            <a href="../PHP/acervo_livros.php?pagina=<?php echo $pagina_posterior ?>">Próximo</a>
-                        <?php } ?>
-                    </li>
-                </ul>
-            </div>
             <?php while ($acervo_data = mysqli_fetch_assoc($result_selecionar_livro)) {
                 echo "<div class='livros'>";
                 echo "<img src=" . $acervo_data['linkImg'] . " alt=''>";
