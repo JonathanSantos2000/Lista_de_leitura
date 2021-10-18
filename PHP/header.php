@@ -11,6 +11,7 @@ session_start();
     <link rel='stylesheet' href='../CSS/acervo.css'>
     <link rel='stylesheet' href='../CSS/styleForm.css'>
     <link rel='shortcut icon' href='../IMG/iconePagina.jpg' />
+    
 </head>
 
 <body>

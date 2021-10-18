@@ -18,7 +18,7 @@ $result_selecionar_acervo = $conexao->query($selecionar_acervo);
 $total_Livros = mysqli_num_rows($result_selecionar_acervo);
 
 //Setar a quantidade de livros por pagina
-$qt_livros_pg = 10;
+$qt_livros_pg = 9;
 
 //calcular o numero de paginas
 $num_paginas = ceil($total_Livros / $qt_livros_pg);
@@ -41,17 +41,22 @@ $result_selecionar_livro = $conexao->query($selecionar_livro);
     ?>
     <main>
         <div class="containerLivro">
-            <div class='conteinerLivro'>
-                <?php while ($acervo_data = mysqli_fetch_assoc($result_selecionar_livro)) {
-                    echo "<div class='bookObject'>";
-                    echo "<div class='tituloLivro'>";
-                    echo "<h1>" . $acervo_data['nomeLivro'] . "</h1>";
-                    echo "</div>";
-                    echo "<div class='imgLivroBiclioteca'>";
-                    echo "<img src='../IMG/iconePagina.jpg'alt=''>";
-                    echo "</div>";
-                    echo "</div>";
-                } ?>
+            <div class="row">
+                <?php while ($acervo_data = mysqli_fetch_assoc($result_selecionar_livro)) { ?>
+                    <div class="col-sm-4 col-md-4">
+                        <div class="bookObject">
+                            <div class="imgLivroBiclioteca">
+                                <img src="<?php echo $acervo_data['linkImg']; ?>" alt="...">
+                            </div>
+                            <div class="infBook">
+                                <h1><?php echo $acervo_data['nomeLivro'] ?></h1>
+                                <div class="buttonInf">
+                                    <p><a href="../PHP/index.php" class="button button2" role="button">Salvar na sua lista</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php } ?>
             </div>
             <?php
             //verificar a pagina anterior e posterior
