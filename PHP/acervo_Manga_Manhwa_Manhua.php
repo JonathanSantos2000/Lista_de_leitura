@@ -25,35 +25,34 @@ WHERE u.id ='$idUsuario' and a.tipo = 'manhwa' OR
 $result = $conexao->query($sql);
 ?>
 
-<div class="container">
-    <?php
-    include 'menu.php';
-    ?>
-    <main>
-        <div class="conteudo">
-            <?php while ($acervo_data = mysqli_fetch_assoc($result)) {
-                echo "<div class='livros'>";
-                echo "<img src=" . $acervo_data['linkImg'] . " alt=''>";
-                echo "<div class='conteudoLivro'>";
-                echo "<div>";
-                echo "<h1>" . $acervo_data['nomeLivro'] . "</h1>";
-                echo "</div>";
-                echo "<div class='infLivros'>";
-                echo "<div>";
-                echo "<h4>Tipo: " . $acervo_data['tipo'] . "</h4>";
-                echo "<h4>Status: " . $acervo_data['statusLeitura'] . "</h4>";
-                echo "<h4>Nº de capitulos lidos: " . $acervo_data['pagsCaps'] . "</h4>";
-                echo "<h4>Autor: " . $acervo_data['autor'] . "</h4>";
-                echo "</div>";
-                echo "<div>";
-                echo "<h4>Local de leitura:<a href='#" . $acervo_data['link'] . "'>Leia aqui</a></h4>";
-                echo "</div>";
-                echo "</div>";
-                echo "</div>";
-                echo "</div>";
-            } ?>
-        </div>
-    </main>
-    <?php
-    include 'footer.php';
-    ?>
+<?php
+include 'menu.php';
+?>
+<main>
+    <div class="conteudo">
+        <?php while ($acervo_data = mysqli_fetch_assoc($result)) {
+            echo "<div class='livros'>";
+            echo "<img src=" . $acervo_data['linkImg'] . " alt=''>";
+            echo "<div class='conteudoLivro'>";
+            echo "<div>";
+            echo "<h1>" . $acervo_data['nomeLivro'] . "</h1>";
+            echo "</div>";
+            echo "<div class='infLivros'>";
+            echo "<div>";
+            echo "<h4>Tipo: " . $acervo_data['tipo'] . "</h4>";
+            echo "<h4>Status: " . $acervo_data['statusLeitura'] . "</h4>";
+            echo "<h4>Nº de capitulos lidos: " . $acervo_data['pagsCaps'] . "</h4>";
+            echo "<h4>Autor: " . $acervo_data['autor'] . "</h4>";
+            echo "</div>";
+            echo "<div>";
+            echo "<h4>Local de leitura:<a href='#" . $acervo_data['link'] . "'>Leia aqui</a></h4>";
+            echo "</div>";
+            echo "</div>";
+            echo "</div>";
+            echo "</div>";
+        } ?>
+    </div>
+</main>
+<?php
+include 'footer.php';
+?>
