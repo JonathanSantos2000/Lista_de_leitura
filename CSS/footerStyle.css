@@ -14,7 +14,7 @@ footer {
 /* ---------- css footer lado inicio ---------- */
 
 .inicio-footer {
-    margin-left:10px ;
+    margin-left: 10px;
 }
 
 .inicio-footer p {
@@ -45,4 +45,8 @@ footer {
 .icone-contato:hover {
     border-radius: 460px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.botao-copiar-email {
+    background: #aaa;
 }
