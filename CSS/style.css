@@ -69,18 +69,7 @@ body {
   font-size: 20px;
 }
 
-footer {
-  background: linear-gradient(230.65deg, #499cfe 27.49%, #9cc8fc 83.19%);
-  box-shadow: 2px 2px 4px rgba(16, 16, 16, 0.42);
-  color: #1c1c1c;
-  text-align: right;
-  margin-top: 20px;
-  height: 2vh;
-}
 
-main {
-  display: flex;
-}
 
 /*----------Passar a pagina----------*/
 

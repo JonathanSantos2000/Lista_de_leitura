@@ -1,10 +1,13 @@
+main {
+	display: flex;
+  }
 .conteiner_menu {
 	background-color: dodgerblue;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 }
-
+/* ---------- css menu lado inicio ---------- */
 .inicio_menu {
 	margin-left: 0%;
 }
@@ -36,7 +39,7 @@
 	color: #fff;
 	font-size: 16px;
 	line-height: 40px;
-	width: auto;
+	width: 400px;
 }
 input::placeholder {
 	color: white;
@@ -93,7 +96,7 @@ li:hover .sub-menu {
 }
 
 .sub-menu li a {
-	width: 150px;
+	width: 200px;
 }
 
 .menu li:hover .sub-menu {
@@ -116,6 +119,6 @@ li:hover .sub-menu {
 
 .sub-menu li:hover .collection {
 	display: block;
-	left: -152px;
+	left: -200px;
 	top: 0;
 }

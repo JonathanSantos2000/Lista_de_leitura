@@ -113,11 +113,11 @@ if ((!isset($_SESSION['username']) == true) and (!isset($_SESSION['password']) =
                   <span class="icone">
                     <ion-icon name="book-outline"></ion-icon>
                   </span>
-                  Manga
+                  Manga <br>
                   <span class="icone">
                     <ion-icon name="book-outline"></ion-icon>
                   </span>
-                  Manhwa
+                  Manhwa <br>
                   <span class="icone">
                     <ion-icon name="book-outline"></ion-icon>
                   </span>
