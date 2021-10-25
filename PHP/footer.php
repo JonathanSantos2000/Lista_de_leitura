@@ -7,21 +7,27 @@
 
         </div>
         <div class="final-footer">
-            <div>
+            <div class="infRedesContato">
                 <a href="https://www.instagram.com/_tiwjhow_/">
                     <img class="icone-contato" src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
                 </a>
+                <h1>_tiwjhow_</h1>
+            </div>
+            <div class="infRedesContato">
                 <a href="https://www.linkedin.com/in/jonathan-costa-418073221/">
                     <img class="icone-contato" src="https://cdn-icons-png.flaticon.com/512/124/124011.png">
                 </a>
+                <h1>Jonathan Costa</h1>
             </div>
-            <div>
+            <div class="infRedesContato">
                 <a href="https://github.com/JonathanSantos2000">
                     <img class="icone-contato" src="https://cdn-icons-png.flaticon.com/512/779/779088.png">
                 </a>
-                <button id="botao-copiar-email">
-                    <img class="icone-contato" src="https://cdn-icons-png.flaticon.com/512/281/281769.png">
-                </button>
+                <h1>JonathanSantos2000</h1>
+            </div>
+            <div class="infRedesContato">
+                <img id="texto" class="icone-contato" src="https://cdn-icons-png.flaticon.com/512/281/281769.png">
+                <input id="botao-copiar-email" type="button" value="Jonathancosta2100@gmail.com">
             </div>
         </div>
     </div>
