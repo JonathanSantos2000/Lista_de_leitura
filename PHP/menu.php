@@ -15,14 +15,16 @@ if ((!isset($_SESSION['username']) == true) and (!isset($_SESSION['password']) =
     </a>
   </div>
   <div class="meio_menu">
-    <div class="search-box">
-      <input type="text" class="search-txt" name="search-txt" placeholder="pesquisar">
-      <a href="#">
-        <span class="icone">
-          <ion-icon name="search-outline"></ion-icon>
-        </span>
-      </a>
-    </div>
+    <form action="../PHP/pesquisar.php" method="post">
+      <div class="search-box">
+        <input type="text" class="search-txt" name="search-txt" placeholder="pesquisar">
+        <button class="search-icone">
+          <span class="icone">
+            <ion-icon name="search-outline"></ion-icon>
+          </span>
+        </button>
+      </div>
+    </form>
   </div>
   <div class="final_menu">
     <ul class="menu">

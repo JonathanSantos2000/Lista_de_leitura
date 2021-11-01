@@ -1,11 +1,27 @@
 /*----------Acervo usuario----------*/
 
+.conteiner {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  width: 100vw;
+}
+.filtro{
+  background: linear-gradient(230.65deg, #499cfe 27.49%, #9cc8fc 83.19%);
+  box-shadow: 2px 2px 4px rgba(16, 16, 16, 0.42);
+  color: #1c1c1c;
+  min-height: 600px;
+  width: 20vw;
+  margin-top: 20px;
+  margin-right: 20px;
+  padding: 25px;
+}
 .containerLivro {
   background: linear-gradient(230.65deg, #499cfe 27.49%, #9cc8fc 83.19%);
   box-shadow: 2px 2px 4px rgba(16, 16, 16, 0.42);
   color: #1c1c1c;
   min-height: 600px;
-  width: 100%;
+  width: 80vw;
   margin-top: 20px;
   padding: 25px;
 }

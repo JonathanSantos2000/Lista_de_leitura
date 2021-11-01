@@ -1,15 +1,21 @@
 main {
 	display: flex;
-  }
+}
+
 .conteiner_menu {
 	background-color: dodgerblue;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	margin: 0;
+	padding: 0;
 }
+
 /* ---------- css menu lado inicio ---------- */
+
 .inicio_menu {
-	margin-left: 0%;
+	margin: 0;
+	width: 12vw;
 }
 
 /* ---------- css menu meio ---------- */
@@ -17,7 +23,7 @@ main {
 .meio_menu {
 	display: flex;
 	justify-content: end;
-	width: 45%;
+	width: 40vw;
 	margin: 0;
 }
 
@@ -32,7 +38,7 @@ main {
 	justify-content: space-between;
 }
 
-.search-txt{
+.search-txt {
 	border: none;
 	background: none;
 	padding: 0;
@@ -41,14 +47,20 @@ main {
 	line-height: 40px;
 	width: 400px;
 }
+
 input::placeholder {
 	color: white;
-  }
+}
+
+.search-icone {
+	background: none;
+	border: none;
+}
 
 /* ---------- css menu lado final ---------- */
 
 .final_menu {
-	margin-right: 0%;
+	margin: 0%;
 }
 
 .logo img {
