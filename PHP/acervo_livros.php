@@ -60,7 +60,6 @@ include 'menu.php';
 ?>
 <main>
     <div class="conteiner">
-
         <?php
         include 'filtro.php';
         ?>

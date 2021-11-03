@@ -1,8 +1,7 @@
 <?php
 $logado = '';
 if ((!isset($_SESSION['username']) == true) and (!isset($_SESSION['password']) == true)) {
-  unset($_SESSION['username']);
-  unset($_SESSION['password']);
+
 } else {
   $logado = ucfirst($_SESSION['username']);
 }
