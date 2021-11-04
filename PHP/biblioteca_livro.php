@@ -4,7 +4,6 @@ include 'header.php';
 
 <?php
 include_once('config.php');
-$idUsuario = $_SESSION['idUsuario'];
 
 //Verifica se esta sendo passado na url a pagina atual, senão é atribuido a pagina  
 $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
@@ -18,7 +17,7 @@ $result_selecionar_acervo = $conexao->query($selecionar_acervo);
 $total_Livros = mysqli_num_rows($result_selecionar_acervo);
 
 //Setar a quantidade de livros por pagina
-$qt_livros_pg = 9;
+$qt_livros_pg = 6;
 
 //calcular o numero de paginas
 $num_paginas = ceil($total_Livros / $qt_livros_pg);
@@ -86,8 +85,10 @@ include 'menu.php';
                     </li>
                 </ul>
             </div>
-
         </div>
+        <?php
+        include 'mais_lidos.php';
+        ?>
     </div>
 </main>
 

@@ -34,7 +34,7 @@ $result_selecionar_acervo = $conexao->query($selecionar_acervo);
 $total_Livros = mysqli_num_rows($result_selecionar_acervo);
 
 //Setar a quantidade de livros por pagina
-$qt_livros_pg = 5;
+$qt_livros_pg = 4;
 
 //calcular o numero de paginas
 $num_paginas = ceil($total_Livros / $qt_livros_pg);
@@ -113,6 +113,9 @@ include 'menu.php';
             </div>
 
         </div>
+        <?php
+        include 'mais_lidos.php';
+        ?>
     </div>
 </main>
 

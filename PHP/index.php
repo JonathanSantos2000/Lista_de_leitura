@@ -55,54 +55,9 @@ include 'menu.php';
       nam id vehicula nec purus ultrices, odio tempor senectus primis rhoncus class est porta scelerisque.
     </p>
   </div>
-  <div class="livroFavorito">
-    <fieldset class="container">
-      <legend id="legendLivro">
-        <h1><b>Livros, Novels, Manga, Manhwa, Manhua <br> mais lidos</b></h1>
-      </legend>
-      <div class="listaLivroFav">
-        <img class="imgLivroFav" src="../IMG/iconePagina.jpg" alt="">
-        <div class="conLivroFav">
-          <h1 class="titulo-h1">
-            <a href="#">titulo livro</a>
-
-          </h1>
-          <span class="icone">
-            <ion-icon name="add-circle-outline"></ion-icon>
-          </span>
-          Adicionar
-        </div>
-      </div>
-      <!--  -->
-      <div class="listaLivroFav">
-        <img class="imgLivroFav" src="../IMG/iconePagina.jpg" alt="">
-        <div class="conLivroFav">
-          <h1 class="titulo-h1">
-            <a href="#">titulo livro</a>
-
-          </h1>
-          <span class="icone">
-            <ion-icon name="add-circle-outline"></ion-icon>
-          </span>
-          Adicionar
-        </div>
-      </div>
-      <!--  -->
-      <div class="listaLivroFav">
-        <img class="imgLivroFav" src="../IMG/iconePagina.jpg" alt="">
-        <div class="conLivroFav">
-          <h1 class="titulo-h1">
-            <a href="#">titulo livro</a>
-
-          </h1>
-          <span class="icone">
-            <ion-icon name="add-circle-outline"></ion-icon>
-          </span>
-          Adicionar
-        </div>
-      </div>
-    </fieldset>
-  </div>
+  <?php
+include 'mais_lidos.php';
+?>
 </main>
 <?php
 include 'footer.php';

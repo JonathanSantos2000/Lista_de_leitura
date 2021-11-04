@@ -15,61 +15,11 @@ body {
   box-shadow: 2px 2px 4px rgba(16, 16, 16, 0.42);
   color: #1c1c1c;
   min-height: 85vh;
-  width: 70%;
-  margin-top: 20px;
-  margin-right: 20px;
+  width: 73vw;
+  margin-top: 72px;
+  margin-left: 0;
   padding: 25px;
 }
-.container{
-  margin: 15px;
-}
-.livroFavorito {
-  background: linear-gradient(230.65deg, #499cfe 27.49%, #9cc8fc 83.19%);
-  box-shadow: 2px 2px 4px rgba(16, 16, 16, 0.42);
-  width: 30%;
-  margin-top: 20px;
-  border: 1px solid #041832;
-}
-.listaLivroFav{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: #fff;
-  border-radius: 25px;
-  margin-bottom: 5px;
-  padding: 5px;
-}
-
-#legendLivro{
-  border: 1px solid #041832;
-  padding: 10px;
-  text-align: center;
-  background: #3468a7;
-  border-radius: 8px;
-}
-
-.imgLivroFav{
-  width: 22vw;
-  height: 35vh;
-}
-
-.conLivroFav{
-  background: rgb(189, 188, 188);
-  margin-bottom: 5px;
-  width: auto;
-}
-
-.titulo-h1 {
-  font-weight: 700;
-  font-size: 36px;
-}
-
-.titulo-p {
-  font-weight: 400;
-  font-size: 20px;
-}
-
-
 
 /*----------Passar a pagina----------*/
 
