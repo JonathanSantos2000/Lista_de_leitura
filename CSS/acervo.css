@@ -11,15 +11,55 @@
   background: linear-gradient(230.65deg, #499cfe 27.49%, #9cc8fc 83.19%);
   box-shadow: 2px 2px 4px rgba(16, 16, 16, 0.42);
   color: #1c1c1c;
-  /* min-height: ; */
-  height: 100vh;
   width: 10vw;
   margin-right: 20px;
   margin-left: 0;
   margin-top: 72px;
   padding: 25px;
 }
+#fieldsetFiltro{
+  border: 1px solid #041832;
+  width: auto;
+}
 
+#legendFiltro {
+  border: 1px solid #041832;
+  padding: 10px;
+  text-align: center;
+  background: #3468a7;
+  border-radius: 8px;
+  width: auto;
+}
+
+#titulo {
+  text-transform: uppercase;
+  border-bottom: 2px solid black;
+  font-size: 100%;
+}
+.radioBoxFiltro {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid black;
+}
+
+#radioFiltro{
+  margin-left: 10px;
+}
+#submitFiltro {
+  background-image: linear-gradient(230.65deg, #499cfe 27.49%, #9cc8fc 83.19%);
+  width: 100%;
+  border: none;
+  margin-top: 10px;
+  padding: 15px;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+#submitFiltro:hover {
+  background-image: linear-gradient(230.65deg, #9cc8fc 27.49%, #499cfe 83.19%);
+}
 /*----------Acervo usuario----------*/
 
 .containerLivro {
@@ -70,6 +110,7 @@
 
 #tituloLivro {
   text-transform: uppercase;
+  border-bottom: 2px solid black;
 }
 
 .lineL {
@@ -79,6 +120,9 @@
 /* ----------Mais adicionados---------- */
 
 .livroFavorito {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background: linear-gradient(230.65deg, #499cfe 27.49%, #9cc8fc 83.19%);
   box-shadow: 2px 2px 4px rgba(16, 16, 16, 0.42);
   width: 27vw;
@@ -92,6 +136,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   background: #fff;
   border-radius: 25px;
   margin-bottom: 5px;

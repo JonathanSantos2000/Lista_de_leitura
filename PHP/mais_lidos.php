@@ -1,7 +1,7 @@
 <div class="livroFavorito">
     <fieldset class="container">
       <legend id="legendLivro">
-        <h1><b>Mais adicionados</b></h1>
+        <h1 id="titulo"><b>Mais adicionados</b></h1>
       </legend>
       <div class="listaLivroFav">
         <img class="imgLivroFav" src="../IMG/iconePagina.jpg" alt="">

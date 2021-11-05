@@ -41,28 +41,36 @@ $result = $conexao->query($sql);
 include 'menu.php';
 ?>
 <main>
-    <div class="conteudo">
-        <?php while ($acervo_data = mysqli_fetch_assoc($result)) {
-            echo "<div class='livros'>";
-            echo "<img src=" . $acervo_data['linkImg'] . " alt=''>";
-            echo "<div class='conteudoLivro'>";
-            echo "<div>";
-            echo "<h1>" . $acervo_data['nomeLivro'] . "</h1>";
-            echo "</div>";
-            echo "<div class='infLivros'>";
-            echo "<div>";
-            echo "<h4>Tipo: " . $acervo_data['tipo'] . "</h4>";
-            echo "<h4>Status: " . $acervo_data['statusLeitura'] . "</h4>";
-            echo "<h4>Nº de paginas lidas: " . $acervo_data['pagsCaps'] . "</h4>";
-            echo "<h4>Autor: " . $acervo_data['autor'] . "</h4>";
-            echo "</div>";
-            echo "<div>";
-            echo "<h4>Local de leitura:<a href='#" . $acervo_data['link'] . "'>Leia aqui</a></h4>";
-            echo "</div>";
-            echo "</div>";
-            echo "</div>";
-            echo "</div>";
-        } ?>
+    <div class="conteiner">
+        <?php
+        include 'filtro.php';
+        ?>
+        <div class="conteudo">
+            <?php while ($acervo_data = mysqli_fetch_assoc($result)) { ?>
+                <div class='livros'>
+                    <img src=" <?php echo  $acervo_data['linkImg'] ?>" alt=''>
+                    <div class="conteudoLivro">
+                        <div>
+                            <h1><?php echo $acervo_data['nomeLivro'] ?></h1>
+                        </div>
+                        <div class='infLivros'>
+                            <div>
+                                <h4>Tipo: <?php echo $acervo_data['tipo'] ?></h4>
+                                <h4>Status: <?php echo $acervo_data['statusLeitura'] ?></h4>
+                                <h4>Nº de paginas lidas: <?php echo $acervo_data['pagsCaps'] ?></h4>
+                                <h4>Autor: <?php echo $acervo_data['autor'] ?></h4>
+                            </div>
+                            <div>
+                                <h4>Local de leitura:<a href="#<?php echo $acervo_data['link'] ?> ">Leia aqui</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
+        </div>
+        <?php
+        include 'mais_lidos.php';
+        ?>
     </div>
 </main>
 <?php

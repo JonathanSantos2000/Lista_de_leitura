@@ -88,7 +88,7 @@ if ((!isset($_SESSION['username']) == true) and (!isset($_SESSION['password']) =
         </li>
       <?php } else { ?>
         <li>
-          <a href="../PHP/adicionar.php">
+          <a href="../PHP/verificar_livro.php">
             <span class="icone">
               <ion-icon name="add-circle-outline"></ion-icon>
             </span>
