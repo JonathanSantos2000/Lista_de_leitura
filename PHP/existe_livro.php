@@ -8,6 +8,7 @@ if ((!isset($_SESSION['username']) == true) and (!isset($_SESSION['password']) =
     unset($_SESSION['password']);
     header('Location: login.php');
 }
+
 include_once('config.php');
 $idLivro = $_SESSION["idLivro"];
 
@@ -29,7 +30,7 @@ include 'menu.php';
 <main>
     <div class="conteudoBox">
         <div class="boxAdd">
-            <form action="" method="post">
+            <form action="validarRelacionamento.php" method="post">
                 <fieldset>
                     <legend>
                         <h1><b>Cadastre o livro</b></h1>

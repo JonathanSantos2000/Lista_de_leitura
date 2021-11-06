@@ -39,14 +39,17 @@
 .radioBoxFiltro {
   display: flex;
   flex-direction: column;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
   border-bottom: 1px solid black;
 }
 
 #radioFiltro{
   margin-left: 10px;
+  margin-bottom: 5px;
 }
 #submitFiltro {
-  background-image: linear-gradient(230.65deg, #499cfe 27.49%, #9cc8fc 83.19%);
+  background-image: linear-gradient(230.65deg, #3468a7 27.49%, #9A58DB 83.19%);
   width: 100%;
   border: none;
   margin-top: 10px;
@@ -58,7 +61,7 @@
 }
 
 #submitFiltro:hover {
-  background-image: linear-gradient(230.65deg, #9cc8fc 27.49%, #499cfe 83.19%);
+  background-image: linear-gradient(230.65deg, #9A58DB 27.49%, #3468a7 83.19%);
 }
 /*----------Acervo usuario----------*/
 

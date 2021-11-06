@@ -8,7 +8,6 @@
         <div class="conLivroFav">
           <h1 class="titulo-h1">
             <a href="#">titulo livro</a>
-
           </h1>
           <span class="icone">
             <ion-icon name="add-circle-outline"></ion-icon>
