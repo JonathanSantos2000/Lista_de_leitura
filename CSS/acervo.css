@@ -17,7 +17,8 @@
   margin-top: 72px;
   padding: 25px;
 }
-#fieldsetFiltro{
+
+#fieldsetFiltro {
   border: 1px solid #041832;
   width: auto;
 }
@@ -36,6 +37,7 @@
   border-bottom: 2px solid black;
   font-size: 100%;
 }
+
 .radioBoxFiltro {
   display: flex;
   flex-direction: column;
@@ -44,10 +46,11 @@
   border-bottom: 1px solid black;
 }
 
-#radioFiltro{
+#radioFiltro {
   margin-left: 10px;
   margin-bottom: 5px;
 }
+
 #submitFiltro {
   background-image: linear-gradient(230.65deg, #3468a7 27.49%, #9A58DB 83.19%);
   width: 100%;
@@ -63,6 +66,7 @@
 #submitFiltro:hover {
   background-image: linear-gradient(230.65deg, #9A58DB 27.49%, #3468a7 83.19%);
 }
+
 /*----------Acervo usuario----------*/
 
 .containerLivro {
@@ -177,37 +181,6 @@
 
 /*----------CSS Biblioteca----------*/
 
-.bookObject {
-  border: 3px solid gainsboro;
-  display: flex;
-  flex-direction: column;
-  padding: 5px;
-  margin: 5px;
-  width: 27vw;
-  background: #fff;
-}
-
-.imgLivroBiclioteca img {
-  width: 25vw;
-  height: 55vh;
-  justify-self: center;
-}
-
-.infBook {
-  border: 3px solid gainsboro;
-  background: rgb(189, 188, 188);
-  padding: 5px;
-  text-transform: uppercase;
-  margin-left: 10px;
-  margin-right: 10px;
-  padding: 15px;
-  height: 130px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-}
-
 .col-sm-6 {
   flex: 0 0 auto;
   width: 50%;
@@ -228,30 +201,57 @@
   margin-left: calc(-0.5 * var(--bs-gutter-x));
 }
 
-.button {
-  background-color: #4CAF50;
-  /* Green */
-  border: none;
-  color: white;
-  padding: 16px 32px;
+.bookObject {
+  border: 3px solid gainsboro;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  margin-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 19vw;
+  height: 25vw;
+  background: #fff;
+}
+
+.imgLivroBiclioteca {
+  background-color: hotpink;
+  width: 90%;
+  height: 60%;
+}
+
+.imgLivroBiclioteca img {
+  width: 100%;
+  height: 100%;
+}
+
+.infBook {
+  border: 3px solid gainsboro;
+  background: rgb(189, 188, 188);
+  text-transform: uppercase;
+  width: 90%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.infBook h1 {
+  font-size: calc(1em + 1vw);
   text-align: center;
+}
+
+#salvar {
   text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  -webkit-transition-duration: 0.4s;
-  /* Safari */
-  transition-duration: 0.4s;
-  cursor: pointer;
-}
-
-.button:hover {
-  background-color: #008CBA;
-  color: white;
-}
-
-.button {
   background-color: white;
   color: black;
   border: 2px solid #008CBA;
+  width: 170px;
+  height: 25px;
+}
+
+#salvar:hover{
+  background-color: #008CBA;
+  color: white;
 }

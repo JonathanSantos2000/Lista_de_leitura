@@ -17,7 +17,7 @@ $result_selecionar_acervo = $conexao->query($selecionar_acervo);
 $total_Livros = mysqli_num_rows($result_selecionar_acervo);
 
 //Setar a quantidade de livros por pagina
-$qt_livros_pg = 6;
+$qt_livros_pg = 9;
 
 //calcular o numero de paginas
 $num_paginas = ceil($total_Livros / $qt_livros_pg);
@@ -51,9 +51,10 @@ include 'menu.php';
                             </div>
                             <div class="infBook">
                                 <h1><?php echo $acervo_data['nomeLivro'] ?></h1>
-                                <div class="buttonInf">
-                                    <p><a href="../PHP/index.php" class="button button2" role="button">Salvar na sua lista</a></p>
-                                </div>
+                                <form action="existe_livro.php" method="post">
+                                    <input type="hidden" name="id" value="<?php echo $acervo_data['id'] ?>">
+                                    <input type="submit" id="salvar" name="salvar" value="SALVAR NA SUA LISTA">
+                                </form>
                             </div>
                         </div>
                     </div>

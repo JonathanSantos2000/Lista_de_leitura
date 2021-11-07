@@ -3,14 +3,17 @@ include 'header.php';
 ?>
 
 <?php
+include_once('config.php');
 if ((!isset($_SESSION['username']) == true) and (!isset($_SESSION['password']) == true)) {
     unset($_SESSION['username']);
     unset($_SESSION['password']);
     header('Location: login.php');
 }
-
-include_once('config.php');
-$idLivro = $_SESSION["idLivro"];
+if (isset($_POST['salvar'])) {
+    $idLivro = $_POST["id"];
+} else {
+    $idLivro = $_SESSION["idLivro"];
+}
 
 $sql = "SELECT * FROM acervo WHERE id='$idLivro'";
 
@@ -81,6 +84,7 @@ include 'menu.php';
                 </fieldset>
             </form>
         </div>
+
     </div>
 </main>
 <?php

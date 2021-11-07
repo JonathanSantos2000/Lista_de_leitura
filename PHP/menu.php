@@ -1,7 +1,6 @@
 <?php
 $logado = '';
 if ((!isset($_SESSION['username']) == true) and (!isset($_SESSION['password']) == true)) {
-
 } else {
   $logado = ucfirst($_SESSION['username']);
 }
@@ -17,7 +16,7 @@ if ((!isset($_SESSION['username']) == true) and (!isset($_SESSION['password']) =
     <form action="../PHP/pesquisar.php" method="post">
       <div class="search-box">
         <input type="text" class="search-txt" name="search-txt" placeholder="pesquisar">
-        <button class="search-icone">
+        <button name="submit" class="search-icone">
           <span class="icone">
             <ion-icon name="search-outline"></ion-icon>
           </span>

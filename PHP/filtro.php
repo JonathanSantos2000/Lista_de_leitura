@@ -8,7 +8,7 @@
             <div class="radioBoxFiltro">
                 <div id="radioFiltro">
                     <input type="radio" id="livro" value="livros" name="tipo" placeholder="Tipo" required>
-                    <label for="livro">Livro</label>
+                    <label for="livro">Livros</label>
                 </div>
                 <div id="radioFiltro">
                     <input type="radio" id="manga" value="manga" name="tipo" placeholder="Tipo" required>
@@ -31,7 +31,7 @@
             <div class="radioBoxFiltro">
                 <div id="radioFiltro">
                     <input type="radio" id="lido" value="lido" name="status" placeholder="status">
-                    <label for="lido">Lido</label>
+                    <label for="lido">Lidos</label>
                 </div>
                 <div id="radioFiltro">
                     <input type="radio" id="lendo" value="lendo" name="status" placeholder="status">
