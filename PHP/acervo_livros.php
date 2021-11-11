@@ -27,6 +27,8 @@ JOIN livro l
 on u.id = l.idusuarios
 JOIN acervo a
 on a.id = l.idacervo
+JOIN marcador m
+on a.id = m.idacervo
 WHERE u.id='$idUsuario' and a.tipo='livros'";
 $result_selecionar_acervo = $conexao->query($selecionar_acervo);
 
@@ -49,6 +51,8 @@ JOIN livro l
 on u.id = l.idusuarios
 JOIN acervo a
 on a.id = l.idacervo
+JOIN marcador m
+on a.id = m.idacervo
 WHERE u.id='$idUsuario' and a.tipo='livros' limit $inicio, $qt_livros_pg";
 
 $result_selecionar_livro = $conexao->query($selecionar_livro);
@@ -70,6 +74,7 @@ include 'menu.php';
                     <div class='conteudoLivro'>
                         <div>
                             <h1 id="tituloLivro"><?php echo $acervo_data['nomeLivro'] ?></h1>
+                            <br>
                         </div>
                         <div class='infLivros'>
                             <div>
@@ -77,14 +82,30 @@ include 'menu.php';
                                 <h4>Status: <?php echo $acervo_data['statusLeitura'] ?></h4>
                                 <h4>Nº paginas lidas: <?php echo $acervo_data['pagsCaps'] ?></h4>
                                 <h4>Autor: <?php echo $acervo_data['autor'] ?></h4>
-                            </div>
-                            <div>
                                 <?php if ($acervo_data['link'] != 'livro fisico') { ?>
                                     <h4>Local de leitura:<a href="#<?php echo $acervo_data['link'] ?>">Leia aqui</a></h4>
                                 <?php } else { ?>
                                     <h4>Lido em livro físicos</h4>
                                 <?php } ?>
                             </div>
+                            <div>
+                                <form action="update.php" method="post">
+                                    <input type="hidden" name="id" value="<?php echo $acervo_data['idacervo'] ?>">
+                                    <button name="submit" id="submit">
+                                        ATUALIZAR
+                                        <!--  <span class="icone">
+                                            <ion-icon name="search-outline"></ion-icon>
+                                        </span> -->
+                                    </button>
+                                </form>
+                            </div>
+                        </div><br>
+                        <h1>Marcados como:</h1>
+                        <div class="marcadores">
+                            <h3>Já leram: <?php echo $acervo_data['lido'] ?> </h3>
+                            <h3>Estam lendo: <?php echo $acervo_data['lendo'] ?></h3>
+                            <h3>Querem ler: <?php echo $acervo_data['quero_ler'] ?></h3>
+                            <h3>Pararam de ler:<?php echo $acervo_data['parei'] ?> </h3>
                         </div>
                     </div>
                 </div>
@@ -93,18 +114,39 @@ include 'menu.php';
             //verificar a pagina anterior e posterior
             $pagina_anterior = $pagina - 1;
             $pagina_posterior = $pagina + 1;
+            $max_links = 2;
             ?>
             <div class="navPagination">
                 <ul class="pagination">
+                    <!-- Anterior -->
                     <li>
                         <?php
                         if ($pagina_anterior != 0) { ?>
                             <a href="../PHP/acervo_livros.php?pagina=<?php echo $pagina_anterior ?>">Anterior</a>
                         <?php } ?>
                     </li>
-                    <!-- Paginas -->
-                    <?php for ($i = 1; $i < $num_paginas + 1; $i++) { ?>
-                        <li><a href="../PHP/acervo_livros.php?pagina=<?php echo $i ?>"><?php echo $i ?></a></li>
+                    <!-- Paginas 2 antes-->
+                    <?php for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) {
+                        if ($pag_ant >= 1) { ?>
+                            <li>
+                                <a href="../PHP/acervo_livros.php?pagina=<?php echo $pag_ant ?>"><?php echo $pag_ant ?></a>
+                            </li>
+                        <?php } ?>
+                    <?php } ?>
+                    <!-- Pagina atual-->
+                    <li id="pgAtual">
+                        <a href="../PHP/acervo_livros.php?pagina=<?php echo $pagina ?>" style="background: aquamarine;">
+                            <?php echo $pagina ?>
+                        </a>
+                    </li>
+                    <!-- Paginas  2 depois-->
+                    <?php for ($pag_dep = $pagina + 1; $pag_dep <=  $pagina + $max_links; $pag_dep++) {
+
+                        if ($pag_dep <= $num_paginas) { ?>
+                            <li>
+                                <a href="../PHP/acervo_livros.php?pagina=<?php echo $pag_dep ?>"><?php echo $pag_dep ?></a>
+                            </li>
+                        <?php } ?>
                     <?php } ?>
                     <!-- Próximo -->
                     <li>
@@ -115,7 +157,6 @@ include 'menu.php';
                     </li>
                 </ul>
             </div>
-
         </div>
         <?php
         include 'mais_lidos.php';

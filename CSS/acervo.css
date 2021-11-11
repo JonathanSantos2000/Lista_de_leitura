@@ -108,11 +108,12 @@
 }
 
 .infLivros {
-  border-radius: 20px;
+  width: 100%;
   font-size: 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  border-bottom: 1px solid #000;
 }
 
 #tituloLivro {
@@ -120,9 +121,6 @@
   border-bottom: 2px solid black;
 }
 
-.lineL {
-  padding-right: 15px;
-}
 
 /* ----------Mais adicionados---------- */
 
@@ -178,7 +176,10 @@
   font-weight: 400;
   font-size: 20px;
 }
-
+.marcadores{
+  width: 100%;
+  display: flex;
+}
 /*----------CSS Biblioteca----------*/
 
 .col-sm-6 {

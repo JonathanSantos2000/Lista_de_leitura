@@ -14,27 +14,52 @@ if ((!isset($_SESSION['username']) == true) and (!isset($_SESSION['password']) =
 
 ?>
 
-
 <?php
 include_once('config.php');
-
-$logado = '';
 $idUsuario = $_SESSION['idUsuario'];
-if ((!isset($_SESSION['username']) == true) and (!isset($_SESSION['password']) == true)) {
-    unset($_SESSION['username']);
-    unset($_SESSION['password']);
-} else {
-    $logado = ucfirst($_SESSION['username']);
-}
 
-$sql = "SELECT * FROM usuarios u
+//Verifica se esta sendo passado na url a pagina atual, senão é atribuido a pagina  
+$pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
+
+//selecionar todos os livros do acervo lidos pela pessoa
+$selecionar_acervo = "SELECT * FROM usuarios u
 JOIN livro l
 on u.id = l.idusuarios
 JOIN acervo a
 on a.id = l.idacervo
 WHERE u.id='$idUsuario' and a.tipo='novels'";
 
-$result = $conexao->query($sql);
+$result_selecionar_acervo = $conexao->query($selecionar_acervo);
+
+//Contar o total de livros do acervo cadastrados pela pessoa
+$total_Livros = mysqli_num_rows($result_selecionar_acervo);
+$msg = '';
+if ($total_Livros == 0) {
+    $msg = 'vazio';
+} else {
+    $msg = '';
+}
+//Setar a quantidade de livros por pagina
+$qt_livros_pg = 4;
+
+//calcular o numero de paginas
+$num_paginas = ceil($total_Livros / $qt_livros_pg);
+
+//Calcular o inicio da visualização
+$inicio = ($qt_livros_pg * $pagina) - $qt_livros_pg;
+
+//selecionar os cursos a serem apresentados na pagina
+
+$selecionar = "SELECT * FROM usuarios u
+JOIN livro l
+on u.id = l.idusuarios
+JOIN acervo a
+on a.id = l.idacervo
+WHERE u.id='$idUsuario' and a.tipo='novels'
+limit $inicio, $qt_livros_pg";
+
+$result_selecionar = $conexao->query($selecionar);
+
 ?>
 
 <?php
@@ -45,29 +70,102 @@ include 'menu.php';
         <?php
         include 'filtro.php';
         ?>
-        <div class="conteudo">
-            <?php while ($acervo_data = mysqli_fetch_assoc($result)) { ?>
-                <div class='livros'>
-                    <img src=" <?php echo  $acervo_data['linkImg'] ?>" alt=''>
-                    <div class="conteudoLivro">
-                        <div>
-                            <h1><?php echo $acervo_data['nomeLivro'] ?></h1>
-                        </div>
-                        <div class='infLivros'>
+        <div class="containerLivro">
+            <?php if ($msg != 'vazio') {
+                while ($acervo_data = mysqli_fetch_assoc($result_selecionar)) { ?>
+                    <div class='livros'>
+                        <img src=" <?php echo  $acervo_data['linkImg'] ?>" alt=''>
+                        <div class='conteudoLivro'>
                             <div>
-                                <h4>Tipo: <?php echo $acervo_data['tipo'] ?></h4>
-                                <h4>Status: <?php echo $acervo_data['statusLeitura'] ?></h4>
-                                <h4>Nº de paginas lidas: <?php echo $acervo_data['pagsCaps'] ?></h4>
-                                <h4>Autor: <?php echo $acervo_data['autor'] ?></h4>
+                                <h1 id="tituloLivro"><?php echo $acervo_data['nomeLivro'] ?></h1>
+                                <br>
                             </div>
-                            <div>
-                                <h4>Local de leitura:<a href="#<?php echo $acervo_data['link'] ?> ">Leia aqui</a></h4>
+                            <div class='infLivros'>
+                                <div>
+                                    <h4>Tipo: <?php echo $acervo_data['tipo'] ?></h4>
+                                    <h4>Status: <?php echo $acervo_data['statusLeitura'] ?></h4>
+                                    <h4>Nº paginas lidas: <?php echo $acervo_data['pagsCaps'] ?></h4>
+                                    <h4>Autor: <?php echo $acervo_data['autor'] ?></h4>
+                                    <?php if ($acervo_data['link'] != 'livro fisico') { ?>
+                                        <h4>Local de leitura:<a href="#<?php echo $acervo_data['link'] ?>">Leia aqui</a></h4>
+                                    <?php } else { ?>
+                                        <h4>Lido em livro físicos</h4>
+                                    <?php } ?>
+                                </div>
+                                <div>
+                                    <form action="update.php" method="post">
+                                        <input type="hidden" name="id" value="<?php echo $acervo_data['idacervo'] ?>">
+                                        <button name="submit" id="submit">
+                                            ATUALIZAR
+                                            <!--  <span class="icone">
+                                            <ion-icon name="search-outline"></ion-icon>
+                                        </span> -->
+                                        </button>
+                                    </form>
+                                </div>
+                            </div><br>
+                            <h1>Marcados como:</h1>
+                            <div class="marcadores">
+                                <h3>Já leram: <?php echo $acervo_data['lido'] ?> </h3>
+                                <h3>Estam lendo: <?php echo $acervo_data['lendo'] ?></h3>
+                                <h3>Querem ler: <?php echo $acervo_data['quero_ler'] ?></h3>
+                                <h3>Pararam de ler:<?php echo $acervo_data['parei'] ?> </h3>
                             </div>
                         </div>
                     </div>
+                <?php } ?>
+                <?php
+                //verificar a pagina anterior e posterior
+                $pagina_anterior = $pagina - 1;
+                $pagina_posterior = $pagina + 1;
+                $max_links = 2;
+                ?>
+                <div class="navPagination">
+                    <ul class="pagination">
+                        <!-- Anterior -->
+                        <li>
+                            <?php
+                            if ($pagina_anterior != 0) { ?>
+                                <a href="../PHP/acervo_Manga_Manhwa_Manhua.php?pagina=<?php echo $pagina_anterior ?>">Anterior</a>
+                            <?php } ?>
+                        </li>
+                        <!-- Paginas 2 antes-->
+                        <?php for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) {
+                            if ($pag_ant >= 1) { ?>
+                                <li>
+                                    <a href="../PHP/acervo_Manga_Manhwa_Manhua.php?pagina=<?php echo $pag_ant ?>"><?php echo $pag_ant ?></a>
+                                </li>
+                            <?php } ?>
+                        <?php } ?>
+                        <!-- Pagina atual-->
+                        <li id="pgAtual">
+                            <a href="../PHP/acervo_Manga_Manhwa_Manhua.php?pagina=<?php echo $pagina ?>" style="background: aquamarine;">
+                                <?php echo $pagina ?>
+                            </a>
+                        </li>
+                        <!-- Paginas  2 depois-->
+                        <?php for ($pag_dep = $pagina + 1; $pag_dep <=  $pagina + $max_links; $pag_dep++) {
+
+                            if ($pag_dep <= $num_paginas) { ?>
+                                <li>
+                                    <a href="../PHP/acervo_Manga_Manhwa_Manhua.php?pagina=<?php echo $pag_dep ?>"><?php echo $pag_dep ?></a>
+                                </li>
+                            <?php } ?>
+                        <?php } ?>
+                        <!-- Próximo -->
+                        <li>
+                            <?php
+                            if ($pagina_posterior <= $num_paginas) { ?>
+                                <a href="../PHP/acervo_Manga_Manhwa_Manhua.php?pagina=<?php echo $pagina_posterior ?>">Próximo</a>
+                            <?php } ?>
+                        </li>
+                    </ul>
                 </div>
+            <?php } else { ?>
+                <h1>Não possui nenhum Manga, Manhwa ou Manhua cadastrado em sua galeria</h1>
             <?php } ?>
         </div>
+
         <?php
         include 'mais_lidos.php';
         ?>

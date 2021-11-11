@@ -62,18 +62,39 @@ include 'menu.php';
             //verificar a pagina anterior e posterior
             $pagina_anterior = $pagina - 1;
             $pagina_posterior = $pagina + 1;
+            $max_links = 2;
             ?>
             <div class="navPagination">
                 <ul class="pagination">
+                    <!-- Anterior -->
                     <li>
                         <?php
                         if ($pagina_anterior != 0) { ?>
-                            <a href="../PHP/biblioteca.php?pagina=<?php echo $pagina_anterior ?>">Anterior</a>
+                            <a href="../PHP/acervo_livros.php?pagina=<?php echo $pagina_anterior ?>">Anterior</a>
                         <?php } ?>
                     </li>
-                    <!-- Paginas -->
-                    <?php for ($i = 1; $i < $num_paginas + 1; $i++) { ?>
-                        <li><a href="../PHP/biblioteca.php?pagina=<?php echo $i ?>"><?php echo $i ?></a></li>
+                    <!-- Paginas 2 antes-->
+                    <?php for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) {
+                        if ($pag_ant >= 1) { ?>
+                            <li>
+                                <a href="../PHP/biblioteca.php?pagina=<?php echo $pag_ant ?>"><?php echo $pag_ant ?></a>
+                            </li>
+                        <?php } ?>
+                    <?php } ?>
+                    <!-- Pagina atual-->
+                    <li id="pgAtual">
+                        <a href="../PHP/biblioteca.php?pagina=<?php echo $pagina ?>" style="background: aquamarine;">
+                            <?php echo $pagina ?>
+                        </a>
+                    </li>
+                    <!-- Paginas  2 depois-->
+                    <?php for ($pag_dep = $pagina + 1; $pag_dep <=  $pagina + $max_links; $pag_dep++) {
+
+                        if ($pag_dep <= $num_paginas) { ?>
+                            <li>
+                                <a href="../PHP/biblioteca.php?pagina=<?php echo $pag_dep ?>"><?php echo $pag_dep ?></a>
+                            </li>
+                        <?php } ?>
                     <?php } ?>
                     <!-- Próximo -->
                     <li>
