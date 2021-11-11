@@ -2,6 +2,7 @@
 include 'header.php';
 ?>
 <?php
+
 include_once('config.php');
 if (isset($_POST['submit'])) {
     $_SESSION['search'] = $_POST['search-txt'];

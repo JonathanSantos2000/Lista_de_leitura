@@ -15,7 +15,7 @@ if ((!isset($_SESSION['username']) == true) and (!isset($_SESSION['password']) =
   <div class="meio_menu">
     <form action="../PHP/pesquisar.php" method="post">
       <div class="search-box">
-        <input type="text" class="search-txt" name="search-txt" placeholder="pesquisar">
+        <input type="text" name="search-txt" class="search-txt" placeholder="pesquisar">
         <button name="submit" class="search-icone">
           <span class="icone">
             <ion-icon name="search-outline"></ion-icon>
@@ -27,46 +27,12 @@ if ((!isset($_SESSION['username']) == true) and (!isset($_SESSION['password']) =
   <div class="final_menu">
     <ul class="menu">
       <li>
-        <a href="#">
+        <a href="../PHP/biblioteca.php">
           <span class="icone">
             <ion-icon name="library-outline"></ion-icon>
           </span>
           <span>Biblioteca</span>
         </a>
-        <ul class="sub-menu">
-          <li>
-            <a href="../PHP/biblioteca_livro.php">
-              <span class="icone">
-                <ion-icon name="book-outline"></ion-icon>
-              </span>
-              Livros
-            </a>
-          </li>
-          <li>
-            <a href="#../PHP/biblioteca_novel.php">
-              <span class="icone">
-                <ion-icon name="book-outline"></ion-icon>
-              </span>
-              Novels
-            </a>
-          </li>
-          <li>
-            <a href="#../PHP/biblioteca_Manga_Manhwa_Manhua.php">
-              <span class="icone">
-                <ion-icon name="book-outline"></ion-icon>
-              </span>
-              Manga <br>
-              <span class="icone">
-                <ion-icon name="book-outline"></ion-icon>
-              </span>
-              Manhwa<br>
-              <span class="icone">
-                <ion-icon name="book-outline"></ion-icon>
-              </span>
-              Manhua
-            </a>
-          </li>
-        </ul>
       </li>
       <?php if ($logado == null) { ?>
         <li>

@@ -11,6 +11,8 @@ if ((!isset($_SESSION['username']) == true) and (!isset($_SESSION['password']) =
 }
 if (isset($_POST['salvar'])) {
     $idLivro = $_POST["id"];
+    $_SESSION["idLivro"] = $_POST["id"];
+    echo $idLivro;
 } else {
     $idLivro = $_SESSION["idLivro"];
 }

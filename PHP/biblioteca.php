@@ -9,8 +9,7 @@ include_once('config.php');
 $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
 
 //selecionar todos os livros do acervo lidos pela pessoa
-$selecionar_acervo = "SELECT * FROM  acervo a
-WHERE a.tipo='livros'";
+$selecionar_acervo = "SELECT * FROM  acervo";
 $result_selecionar_acervo = $conexao->query($selecionar_acervo);
 
 //Contar o total de livros do acervo cadastrados pela pessoa
@@ -27,8 +26,7 @@ $inicio = ($qt_livros_pg * $pagina) - $qt_livros_pg;
 
 //selecionar os cursos a serem apresentados na pagina
 
-$selecionar_livro = "SELECT * FROM  acervo a
-WHERE a.tipo='livros' limit $inicio, $qt_livros_pg";
+$selecionar_livro = "SELECT * FROM  acervo limit $inicio, $qt_livros_pg";
 
 $result_selecionar_livro = $conexao->query($selecionar_livro);
 
@@ -70,18 +68,18 @@ include 'menu.php';
                     <li>
                         <?php
                         if ($pagina_anterior != 0) { ?>
-                            <a href="../PHP/biblioteca_livro.php?pagina=<?php echo $pagina_anterior ?>">Anterior</a>
+                            <a href="../PHP/biblioteca.php?pagina=<?php echo $pagina_anterior ?>">Anterior</a>
                         <?php } ?>
                     </li>
                     <!-- Paginas -->
                     <?php for ($i = 1; $i < $num_paginas + 1; $i++) { ?>
-                        <li><a href="../PHP/biblioteca_livro.php?pagina=<?php echo $i ?>"><?php echo $i ?></a></li>
+                        <li><a href="../PHP/biblioteca.php?pagina=<?php echo $i ?>"><?php echo $i ?></a></li>
                     <?php } ?>
                     <!-- Próximo -->
                     <li>
                         <?php
                         if ($pagina_posterior <= $num_paginas) { ?>
-                            <a href="../PHP/biblioteca_livro.php?pagina=<?php echo $pagina_posterior ?>">Próximo</a>
+                            <a href="../PHP/biblioteca.php?pagina=<?php echo $pagina_posterior ?>">Próximo</a>
                         <?php } ?>
                     </li>
                 </ul>
