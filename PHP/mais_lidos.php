@@ -17,7 +17,9 @@ $result_marcados = $conexao->query($marcados);
     </legend>
     <?php while ($acervo_data = mysqli_fetch_assoc($result_marcados)) { ?>
       <div class="listaLivroFav">
-        <img class="imgLivroFav" src="<?php echo  $acervo_data['linkImg'] ?>" alt="<?php echo $acervo_data['nomeLivro'] ?>">
+        <div>
+           <img class="imgLivroFav" src="<?php echo  $acervo_data['linkImg'] ?>" alt="<?php echo $acervo_data['nomeLivro'] ?>">
+        </div>
         <div class="conLivroFav">
           <h1 class="titulo-h1">
             <a href="#"><?php echo $acervo_data['nomeLivro'] ?></a>

@@ -92,7 +92,7 @@ include 'menu.php';
                                 <form action="update.php" method="post">
                                     <input type="hidden" name="id" value="<?php echo $acervo_data['idacervo'] ?>">
                                     <button name="submit" id="submit">
-                                        ATUALIZAR
+                                        atualizar   cadastro
                                         <!--  <span class="icone">
                                             <ion-icon name="search-outline"></ion-icon>
                                         </span> -->
