@@ -53,7 +53,7 @@ if ((!isset($_SESSION['username']) == true) and (!isset($_SESSION['password']) =
         </li>
       <?php } else { ?>
         <li>
-          <a href="../PHP/verificar_livro.php">
+          <a href="../PHP/adicionar.php">
             <span class="icone">
               <ion-icon name="add-circle-outline"></ion-icon>
             </span>
