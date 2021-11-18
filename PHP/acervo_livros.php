@@ -93,9 +93,9 @@ include 'menu.php';
                                     <input type="hidden" name="id" value="<?php echo $acervo_data['idacervo'] ?>">
                                     <button name="submit" id="submit">
                                         atualizar   cadastro
-                                        <!--  <span class="icone">
+                                        <span class="icone">
                                             <ion-icon name="search-outline"></ion-icon>
-                                        </span> -->
+                                        </span>
                                     </button>
                                 </form>
                             </div>

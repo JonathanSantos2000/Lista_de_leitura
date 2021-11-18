@@ -134,18 +134,34 @@ legend {
   margin-bottom: 150px;
 }
 
-.pesquisarLivro {
-  display: block;
+.marcadores h3 {
+  text-transform: uppercase;
 }
 
-.maisDeUmResultado {
-  display: none;
+.marcadores img {
+  margin: 15px;
+  max-height: 40px;
+  max-width: 40px;
 }
 
-.novo {
-  display: none;
+.ptSuperior {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
 }
 
-.ApenasUm {
-  display: none;
+.ptSuperior button {
+  border: none;
+  background: none;
+}
+.ptSuperior button:hover {
+  border: 1px solid #1c1c1c;
+  border-radius: 20%;
+  background: none;
+}
+
+.ptSuperior button img {
+  margin: 15px;
+  max-height: 40px;
+  max-width: 40px;
 }
