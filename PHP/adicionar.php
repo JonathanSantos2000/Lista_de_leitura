@@ -7,6 +7,8 @@ $logado = '';
 $pesquisado = false;
 $novo = false;
 $jaExiste = false;
+$idLivro = '';
+
 include_once('config.php');
 if ((!isset($_SESSION['username']) == true) and (!isset($_SESSION['password']) == true)) {
     unset($_SESSION['username']);
@@ -15,6 +17,8 @@ if ((!isset($_SESSION['username']) == true) and (!isset($_SESSION['password']) =
 } else {
     $logado = ucfirst($_SESSION['username']);
 }
+
+
 if (isset($_POST['verificar'])) {
     $nome = $_POST['nomeLivro'];
     $autor = $_POST['nomeAutor'];
@@ -32,6 +36,30 @@ if (isset($_POST['verificar'])) {
     } else {
         $pesquisado = true;
     }
+}
+if (isset($_POST['addLivro'])) {
+    $pesquisado = false;
+    $jaExiste = true;
+    $idLivro = $_POST["id"];
+    $_SESSION["idLivro"] = $_POST["id"];
+}
+
+if (isset($_POST['salvar'])) {
+    $pesquisado = false;
+    $jaExiste = true;
+    $idLivro = $_POST["id"];
+    $_SESSION["idLivro"] = $_POST["id"];
+}
+
+$sqlLivroExiste = "SELECT * FROM acervo WHERE id='$idLivro'";
+
+$resultLivroExiste = $conexao->query($sqlLivroExiste);
+
+while ($acervo_data = mysqli_fetch_assoc($resultLivroExiste)) {
+    $nome = $acervo_data['nomeLivro'];
+    $img = $acervo_data['linkImg'];
+    $tipo = $acervo_data['tipo'];
+    $autor = $acervo_data['autor'];
 }
 ?>
 
@@ -58,7 +86,7 @@ include 'menu.php';
                                 </div>
                                 <br>
                                 <div class="inputBox">
-                                    <input type="text" name="linkImg" id="linkImg" class="inputUser">
+                                    <input type="text" name="linkImg" id="linkImg" class="inputUser" required>
                                     <label for="linkImg" class="labelInput">link da imagem</label>
                                 </div>
                                 <br>
@@ -91,7 +119,7 @@ include 'menu.php';
                                 </div>
                                 <br><br>
                                 <div class="inputBox">
-                                    <input type="number" name="nPaginas" id="nPaginas" class="inputUser">
+                                    <input type="number" name="nPaginas" id="nPaginas" class="inputUser" required>
                                     <label for="nPaginas" class="labelInput">Nº de paginas/capitulos lidos</label>
                                 </div>
                                 <br>
@@ -109,21 +137,21 @@ include 'menu.php';
                                 <div class="radioBox">
                                     <div class="radioBoxConteudo">
                                         <div>
-                                            <input type="radio" id="lido" value="lido" name="status" placeholder="status">
+                                            <input type="radio" id="lido" value="lido" name="status" placeholder="status" required>
                                             <label for="lido">Lido</label>
                                         </div>
                                         <div>
-                                            <input type="radio" id="lendo" value="lendo" name="status" placeholder="status">
+                                            <input type="radio" id="lendo" value="lendo" name="status" placeholder="status" required>
                                             <label for="lendo">Lendo</label>
                                         </div>
                                     </div>
                                     <div class="radioBoxConteudo">
                                         <div>
-                                            <input type="radio" id="quero-ler" value="quero-ler" name="status" placeholder="status">
+                                            <input type="radio" id="quero-ler" value="quero-ler" name="status" placeholder="status" required>
                                             <label for="quero-ler">Quero-ler</label>
                                         </div>
                                         <div>
-                                            <input type="radio" id="parei" value="parei" name="status" placeholder="status">
+                                            <input type="radio" id="parei" value="parei" name="status" placeholder="status" required>
                                             <label for="parei">Parei</label>
                                         </div>
                                     </div>
@@ -150,7 +178,7 @@ include 'menu.php';
                                     <div class="imgLivroExiste"><img src="<?php echo $img ?>" alt=""></div>
                                 </div><br><br>
                                 <div class="inputBox">
-                                    <input type="number" name="nPaginas" id="nPaginas" class="inputUser">
+                                    <input type="number" name="nPaginas" id="nPaginas" class="inputUser" required>
                                     <label for="nPaginas" class="labelInput">Nº de paginas/capitulos lidos</label>
                                 </div><br><br>
                                 <div class="inputBox">
@@ -162,21 +190,21 @@ include 'menu.php';
                                 <div class="radioBox">
                                     <div class="radioBoxConteudo">
                                         <div>
-                                            <input type="radio" id="lido" value="lido" name="status" placeholder="status">
+                                            <input type="radio" id="lido" value="lido" name="status" placeholder="status" required>
                                             <label for="lido">Lido</label>
                                         </div>
                                         <div>
-                                            <input type="radio" id="lendo" value="lendo" name="status" placeholder="status">
+                                            <input type="radio" id="lendo" value="lendo" name="status" placeholder="status" required>
                                             <label for="lendo">Lendo</label>
                                         </div>
                                     </div>
                                     <div class="radioBoxConteudo">
                                         <div>
-                                            <input type="radio" id="quero-ler" value="quero-ler" name="status" placeholder="status">
+                                            <input type="radio" id="quero-ler" value="quero-ler" name="status" placeholder="status" required>
                                             <label for="quero-ler">Quero-ler</label>
                                         </div>
                                         <div>
-                                            <input type="radio" id="parei" value="parei" name="status" placeholder="status">
+                                            <input type="radio" id="parei" value="parei" name="status" placeholder="status" required>
                                             <label for="parei">Parei</label>
                                         </div>
                                     </div>
@@ -222,9 +250,10 @@ include 'menu.php';
                                         <h1 id="tituloLivro"> <?php echo $rows_livros['nomeLivro'] ?></h1>
                                     </div>
                                     <div>
-                                        <form action="" method="post">
-                                            <input type="hidden" name="id" value="<?php echo $rows_livros['id'] ?>">
-                                            <button>
+                                        <form action="adicionar.php" method="post">
+                                            <input type="hidden" name="id" value="<?php echo $rows_livros['idacervo'] ?>">
+                                            <h1><?php echo $rows_livros['idacervo'] ?></h1>
+                                            <button name="addLivro">
                                                 <img src="https://cdn-icons-png.flaticon.com/512/992/992651.png" alt="">
                                             </button>
                                         </form>
@@ -268,7 +297,7 @@ include 'menu.php';
                         </div>
                     <?php } ?>
                 </div>
-            </div>  
+            </div>
         <?php } ?>
     </div>
 </main>

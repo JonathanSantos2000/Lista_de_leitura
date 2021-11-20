@@ -49,7 +49,7 @@ include 'menu.php';
                             </div>
                             <div class="infBook">
                                 <h1><?php echo $acervo_data['nomeLivro'] ?></h1>
-                                <form action="existe_livro.php" method="post">
+                                <form action="adicionar.php" method="post">
                                     <input type="hidden" name="id" value="<?php echo $acervo_data['id'] ?>">
                                     <input type="submit" id="salvar" name="salvar" value="SALVAR NA SUA LISTA">
                                 </form>

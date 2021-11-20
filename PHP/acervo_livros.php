@@ -92,7 +92,7 @@ include 'menu.php';
                                 <form action="update.php" method="post">
                                     <input type="hidden" name="id" value="<?php echo $acervo_data['idacervo'] ?>">
                                     <button name="submit" id="submit">
-                                        atualizar   cadastro
+                                        atualizar cadastro
                                         <span class="icone">
                                             <ion-icon name="search-outline"></ion-icon>
                                         </span>
@@ -102,10 +102,30 @@ include 'menu.php';
                         </div><br>
                         <h1>Marcados como:</h1>
                         <div class="marcadores">
-                            <h3>Já leram: <?php echo $acervo_data['lido'] ?> </h3>
-                            <h3>Estam lendo: <?php echo $acervo_data['lendo'] ?></h3>
-                            <h3>Querem ler: <?php echo $acervo_data['quero_ler'] ?></h3>
-                            <h3>Pararam de ler:<?php echo $acervo_data['parei'] ?> </h3>
+                            <div>
+                                <img src="https://cdn-icons-png.flaticon.com/512/271/271205.png" alt="Já leram"><br>
+                                <h3>
+                                    Já leram: <?php echo $acervo_data['lido'] ?>
+                                </h3>
+                            </div>
+                            <div>
+                                <img src="https://cdn-icons-png.flaticon.com/512/159/159604.png" alt="Lendo">
+                                <h3>
+                                    Lendo: <?php echo $acervo_data['lendo'] ?>
+                                </h3>
+                            </div>
+                            <div>
+                                <img src="https://cdn-icons-png.flaticon.com/512/709/709631.png" alt="Querem ler">
+                                <h3>
+                                    Querem ler: <?php echo $acervo_data['quero_ler'] ?>
+                                </h3>
+                            </div>
+                            <div>
+                                <img src="https://cdn-icons-png.flaticon.com/512/25/25239.png" alt="Pararam">
+                                <h3>
+                                    Pararam:<?php echo $acervo_data['parei'] ?>
+                                </h3>
+                            </div>
                         </div>
                     </div>
                 </div>

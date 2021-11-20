@@ -1,6 +1,7 @@
 <?php
 session_start();
 include_once('config.php');
+
 $idLivro = $_SESSION["idLivro"];
 $status = $_SESSION["status"];
 
@@ -31,7 +32,7 @@ if (mysqli_num_rows($result) < 1) {
 
     $addMarcador = mysqli_query($conexao, "INSERT INTO marcador(idacervo, lido, lendo, quero_ler, parei)
     VALUES ('$idLivro','$lido','$lendo','$queroLer','$parei')");
-    header('Location: verificar_livro.php');
+    header('Location: adicionar.php');
 } else {
 
     while ($acervo_data = mysqli_fetch_assoc($result)) {
@@ -63,5 +64,5 @@ if (mysqli_num_rows($result) < 1) {
 
     $result = $conexao->query($sqlUpdate);
 
-    header('Location: verificar_livro.php');
+    header('Location: adicionar.php');
 }
