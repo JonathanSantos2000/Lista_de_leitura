@@ -3,7 +3,7 @@
         <legend id="legendFiltro">
             <h1 id="titulo"><b>filtro</b></h1>
         </legend>
-        <form action="" method="post">
+        <form action="resultadoFiltro.php" method="post">
             <p>Tipo:</p>
             <div class="radioBoxFiltro">
                 <div id="radioFiltro">

@@ -26,7 +26,7 @@ if (isset($_POST['verificar'])) {
     $result_pesquisa = " SELECT * FROM acervo a
     JOIN marcador m
     on a.id = m.idacervo
-    WHERE nomeLivro LIKE '%$nome%' and autor LIKE '%$autor%'";
+    WHERE nomeLivro LIKE '%" . str_replace(' ', '%', $nome) . "%'  and autor LIKE '%" . str_replace(' ', '%', $autor) . "%'";
 
     $result = $conexao->query($result_pesquisa);
 
@@ -251,8 +251,7 @@ include 'menu.php';
                                     </div>
                                     <div>
                                         <form action="adicionar.php" method="post">
-                                            <input type="hidden" name="id" value="<?php echo $rows_livros['idacervo'] ?>">
-                                            <h1><?php echo $rows_livros['idacervo'] ?></h1>
+                                            <input type="hidden" name="id" value="<?php echo $rows_livros['id'] ?>">
                                             <button name="addLivro">
                                                 <img src="https://cdn-icons-png.flaticon.com/512/992/992651.png" alt="">
                                             </button>

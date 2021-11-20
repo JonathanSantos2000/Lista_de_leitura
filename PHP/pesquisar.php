@@ -14,7 +14,8 @@ $pesquisar = $_SESSION['search'];
 $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
 
 //selecionar todos os livros do acervo lidos pela pessoa
-$result_pesquisa = "SELECT * FROM acervo WHERE nomeLivro LIKE '%$pesquisar%'";
+$result_pesquisa = "SELECT * FROM acervo WHERE nomeLivro LIKE '%" . str_replace(' ', '%', $pesquisar) . "%'";
+
 $resultado_pesquisa = mysqli_query($conexao, $result_pesquisa);
 
 //Contar o total de livros do acervo cadastrados pela pessoa
@@ -31,7 +32,7 @@ $inicio = ($qt_livros_pg * $pagina) - $qt_livros_pg;
 
 //selecionar os cursos a serem apresentados na pagina
 
-$selecionar_livro = "SELECT * FROM acervo WHERE nomeLivro LIKE '%$pesquisar%' limit $inicio, $qt_livros_pg";
+$selecionar_livro = "SELECT * FROM acervo WHERE nomeLivro LIKE '%" . str_replace(' ', '%', $pesquisar) . "%' limit $inicio, $qt_livros_pg";
 
 $result_selecionar_livro = $conexao->query($selecionar_livro);
 
