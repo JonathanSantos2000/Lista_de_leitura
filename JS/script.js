@@ -1,5 +1,9 @@
-function exibirResultado() {
-    document.querySelector(".maisDeUmResultado").style.display = "flex";
+function hideLinkWeb() {
+    console.log("esconder");
+    document.querySelector(".web").style.display = "none";
+}
 
-    document.querySelector(".pesquisarLivro").style.display = "none";
+function showLinkWeb() {
+    console.log("mostrar");
+    document.querySelector(".web").style.display = "flex";
 }

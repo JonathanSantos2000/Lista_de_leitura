@@ -36,7 +36,7 @@ $result_selecionar_acervo = $conexao->query($selecionar_acervo);
 $total_Livros = mysqli_num_rows($result_selecionar_acervo);
 
 //Setar a quantidade de livros por pagina
-$qt_livros_pg = 4;
+$qt_livros_pg = 6;
 
 //calcular o numero de paginas
 $num_paginas = ceil($total_Livros / $qt_livros_pg);
@@ -82,7 +82,7 @@ include 'menu.php';
                                 <h4>Status: <?php echo $acervo_data['statusLeitura'] ?></h4>
                                 <h4>Nº paginas lidas: <?php echo $acervo_data['pagsCaps'] ?></h4>
                                 <h4>Autor: <?php echo $acervo_data['autor'] ?></h4>
-                                <?php if ($acervo_data['link'] != 'livro fisico') { ?>
+                                <?php if ($acervo_data['link'] != 'fisico') { ?>
                                     <h4>Local de leitura:<a href="#<?php echo $acervo_data['link'] ?>">Leia aqui</a></h4>
                                 <?php } else { ?>
                                     <h4>Lido em livro físicos</h4>

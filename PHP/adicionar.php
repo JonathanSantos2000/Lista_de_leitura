@@ -81,7 +81,7 @@ include 'menu.php';
                                 </legend>
                                 <br>
                                 <div class="inputBox">
-                                    <input type="text" name="nomeLivro" id="nomeLivro" class="inputUser" required>
+                                    <input type="text" name="nomeLivro" id="nomeLivro" class="inputUser" value="<?php echo $nome ?>" required>
                                     <label for="nomeLivro" class="labelInput">Nome</label>
                                 </div>
                                 <br>
@@ -122,15 +122,31 @@ include 'menu.php';
                                     <input type="number" name="nPaginas" id="nPaginas" class="inputUser" required>
                                     <label for="nPaginas" class="labelInput">Nº de paginas/capitulos lidos</label>
                                 </div>
-                                <br>
+                                <br><br>
                                 <div class="inputBox">
-                                    <input type="text" name="nomeAutor" id="nomeAutor" class="inputUser" required>
+                                    <input type="text" name="nomeAutor" id="nomeAutor" class="inputUser" value="<?php echo $autor ?>" required>
                                     <label for="nomeAutor" class="labelInput">Nome do autor</label>
                                 </div>
                                 <br>
+                                <br>
+                                <p>Lido em:</p>
+                                <div class="radioBox">
+                                    <div class="radioBoxConteudo">
+                                        <input type="radio" id="fisico" value="fisico" name="local" placeholder="local" onclick="hideLinkWeb">
+                                        <label for="fisico">Livro fisico</label>
+                                    </div>
+                                    <div class="radioBoxConteudo">
+                                        <input type="radio" id="online" value="online" name="local" placeholder="local" onclick="showLinkWeb">
+                                        <label for="online">online</label>
+                                    </div>
+                                </div>
+
+                                <br><br>
                                 <div class="inputBox">
-                                    <input type="text" name="locaLivro" id="locaLivro" class="inputUser" required>
-                                    <label for="locaLivro" class="labelInput">Local da leitura</label>
+                                    <div class="web">
+                                        <input type="text" name="locaLivro" id="locaLivro" class="inputUser" required>
+                                        <label for="locaLivro" class="labelInput">Local da leitura</label>
+                                    </div>
                                 </div>
                                 <br>
                                 <p>Status:</p>
