@@ -47,9 +47,16 @@ legend {
   position: relative;
 }
 
-.web {
+/* inicio local lido */
+
+#online, #fisico {
   display: none;
 }
+
+
+
+/* fim local lido */
+
 .inputUser {
   background: none;
   border: none;
@@ -82,11 +89,13 @@ legend {
   flex-direction: row;
   justify-content: space-around;
 }
-.space-between{
+
+.space-between {
   margin: 0;
   display: flex;
   justify-content: space-between;
 }
+
 #submit {
   background-image: linear-gradient(230.65deg, #499cfe 27.49%, #9cc8fc 83.19%);
   width: 100%;
@@ -163,6 +172,7 @@ legend {
   border: none;
   background: none;
 }
+
 .ptSuperior button:hover {
   border: 1px solid #1c1c1c;
   border-radius: 20%;

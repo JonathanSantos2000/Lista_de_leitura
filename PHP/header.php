@@ -12,7 +12,7 @@ session_start();
     <link rel='stylesheet' href='../CSS/acervo.css'>
     <link rel='stylesheet' href='../CSS/styleForm.css'>
     <link rel='shortcut icon' href='../IMG/iconePagina.jpg' />
-    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 
 <body>

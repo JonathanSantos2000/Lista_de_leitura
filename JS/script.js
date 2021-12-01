@@ -1,9 +1,8 @@
-function hideLinkWeb() {
-    console.log("esconder");
-    document.querySelector(".web").style.display = "none";
-}
+$(document).ready(function () {
+    $('#select').on('change', function () {
+        var selecValor = '#'+$(this).val();
+        $('#pai').children('div').hide();
 
-function showLinkWeb() {
-    console.log("mostrar");
-    document.querySelector(".web").style.display = "flex";
-}
+        $('#pai').children(selecValor).show();
+    });
+});
