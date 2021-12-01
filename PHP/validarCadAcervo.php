@@ -30,5 +30,5 @@ if (isset($_POST['submit'])) {
          header('Location: validarRelacionamento.php');
     }
 } else {
-    header('Location: registro.php');
+    header('Location: adicionar.php');
 }

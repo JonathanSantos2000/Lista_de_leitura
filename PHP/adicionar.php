@@ -130,22 +130,26 @@ include 'menu.php';
                                 <br>
                                 <br>
                                 <p>Lido em:</p>
-                                <div class="radioBox">
-                                    <div class="radioBoxConteudo">
-                                        <input type="radio" id="fisico" value="fisico" name="local" placeholder="local" onclick="hideLinkWeb">
-                                        <label for="fisico">Livro fisico</label>
-                                    </div>
-                                    <div class="radioBoxConteudo">
-                                        <input type="radio" id="online" value="online" name="local" placeholder="local" onclick="showLinkWeb">
-                                        <label for="online">online</label>
-                                    </div>
+                                <div class="select">
+                                    <select name="localLido" id="select">
+                                        <option value="">Selecionar</option>
+                                        <option value="fisico">Livro fisico</option>
+                                        <option value="online">Site web</option>
+                                    </select>
                                 </div>
-
                                 <br><br>
-                                <div class="inputBox">
-                                    <div class="web">
-                                        <input type="text" name="locaLivro" id="locaLivro" class="inputUser" required>
-                                        <label for="locaLivro" class="labelInput">Local da leitura</label>
+                                <div id="pai">
+                                    <div id="fisico">
+                                        <input type="hidden" name="id" value="fisico">
+                                    </div>
+                                    <br>
+                                    <div id="online">
+                                        <div class="inputBox">
+                                            <div class="web">
+                                                <input type="text" name="linkWeb" id="linkWeb" class="inputUser">
+                                                <label for="linkWeb" class="labelInput">Local da leitura</label>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <br>
@@ -197,10 +201,30 @@ include 'menu.php';
                                     <input type="number" name="nPaginas" id="nPaginas" class="inputUser" required>
                                     <label for="nPaginas" class="labelInput">Nº de paginas/capitulos lidos</label>
                                 </div><br><br>
-                                <div class="inputBox">
-                                    <input type="text" name="locaLivro" id="locaLivro" class="inputUser" required>
-                                    <label for="locaLivro" class="labelInput">Local da leitura</label>
+                                <p>Lido em:</p>
+                                <div class="select">
+                                    <select name="localLido" id="select">
+                                        <option value="">Selecionar</option>
+                                        <option value="fisico">Livro fisico</option>
+                                        <option value="online">Site web</option>
+                                    </select>
                                 </div>
+                                <br><br>
+                                <div id="pai">
+                                    <div id="fisico">
+                                        <input type="hidden" name="id" value="fisico">
+                                    </div>
+                                    <br>
+                                    <div id="online">
+                                        <div class="inputBox">
+                                            <div class="web">
+                                                <input type="text" name="linkWeb" id="linkWeb" class="inputUser">
+                                                <label for="linkWeb" class="labelInput">Local da leitura</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
                                 <br>
                                 <p>Status:</p>
                                 <div class="radioBox">
