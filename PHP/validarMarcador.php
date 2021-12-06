@@ -32,6 +32,7 @@ if (mysqli_num_rows($result) < 1) {
 
     $addMarcador = mysqli_query($conexao, "INSERT INTO marcador(idacervo, lido, lendo, quero_ler, parei)
     VALUES ('$idLivro','$lido','$lendo','$queroLer','$parei')");
+
     header('Location: adicionar.php');
 } else {
 

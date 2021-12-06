@@ -10,24 +10,38 @@ if (isset($_POST['submit'])) {
     $pagsCaps = $_POST['nPaginas'];
     $autor = $_POST['nomeAutor'];
 
-    $localLido = $_POST['locaLivro'];
     $status = $_POST['status'];
 
     $_SESSION['nomeLivro'] = $nome;
-    $_SESSION['localLido'] = $localLido;
     $_SESSION['status'] = $status;
+    $_SESSION['pagsCaps'] = $pagsCaps;
 
     $sql = "SELECT * FROM acervo WHERE nomeLivro='$nome'";
 
     $result = $conexao->query($sql);
 
-    if (mysqli_num_rows($result) == 1) {
-        echo "Livro ja cadastrado";
-        header('Location: validarRelacionamento.php');
+    $selecionado = $_POST['localLido'];
+    if ($selecionado == "fisico") {
+        $_SESSION['localLido'] = $selecionado;
+    } elseif ($selecionado == "online") {
+        /* echo "livro lido em site web"; */
+        if ($_POST["linkWeb"] != "") {
+            $_SESSION['localLido'] = $_POST["linkWeb"];
+            /* echo "<br>" . $link; */
+        } else {
+            echo "<br> Por favor coloque o link da pagina ";
+        }
     } else {
-        $addAcervo = mysqli_query($conexao, "INSERT INTO acervo(nomeLivro, linkImg, tipo, pagsCaps, autor)
-        VALUES ('$nome','$img','$tipo','$pagsCaps','$autor')");
+        echo "Por favor selecione uma opção";
+    }
+    echo "<br><br>";
+
+    if (mysqli_num_rows($result) < 1) {
+        $addAcervo = mysqli_query($conexao, "INSERT INTO acervo(nomeLivro, linkImg, tipo, autor)
+        VALUES ('$nome','$img','$tipo','$autor')");
+
          header('Location: validarRelacionamento.php');
+    } else {
     }
 } else {
     header('Location: adicionar.php');
