@@ -11,7 +11,7 @@ if ((!isset($_SESSION['username']) == true) and (!isset($_SESSION['password']) =
 } else {
     $logado = ucfirst($_SESSION['username']);
 }
-
+$_SESSION['search'] ="";
 ?>
 
 <?php
@@ -36,7 +36,7 @@ $result_selecionar_acervo = $conexao->query($selecionar_acervo);
 $total_Livros = mysqli_num_rows($result_selecionar_acervo);
 
 //Setar a quantidade de livros por pagina
-$qt_livros_pg = 6;
+$qt_livros_pg = 5;
 
 //calcular o numero de paginas
 $num_paginas = ceil($total_Livros / $qt_livros_pg);
@@ -63,20 +63,20 @@ $result_selecionar_livro = $conexao->query($selecionar_livro);
 include 'menu.php';
 ?>
 <main>
-    <div class="conteiner">
+    <div class="conteiner flex-conteiner">
         <?php
         include 'filtro.php';
         ?>
         <div class="containerLivro">
             <?php while ($acervo_data = mysqli_fetch_assoc($result_selecionar_livro)) { ?>
-                <div class='livros'>
+                <div class='livros flex-conteiner justify-self-center'>
                     <img src=" <?php echo  $acervo_data['linkImg'] ?>" alt=''>
-                    <div class='conteudoLivro'>
+                    <div class='conteudoLivro flex-conteiner flex-direction-column justify-self-center justify-content-space-around'>
                         <div>
                             <h1 id="tituloLivro"><?php echo $acervo_data['nomeLivro'] ?></h1>
                             <br>
                         </div>
-                        <div class='infLivros'>
+                        <div class='infLivros flex-conteiner justify-content-space-around'>
                             <div>
                                 <h4>Tipo: <?php echo $acervo_data['tipo'] ?></h4>
                                 <h4>Status: <?php echo $acervo_data['statusLeitura'] ?></h4>
@@ -101,7 +101,7 @@ include 'menu.php';
                             </div>
                         </div><br>
                         <h1>Marcados como:</h1>
-                        <div class="marcadores">
+                        <div class="marcadores flex-conteiner">
                             <div>
                                 <img src="https://cdn-icons-png.flaticon.com/512/271/271205.png" alt="Já leram"><br>
                                 <h3>
@@ -136,7 +136,7 @@ include 'menu.php';
             $pagina_posterior = $pagina + 1;
             $max_links = 2;
             ?>
-            <div class="navPagination">
+            <div class="flex-conteiner justify-content-rigth">
                 <ul class="pagination">
                     <!-- Anterior -->
                     <li>

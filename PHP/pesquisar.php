@@ -43,28 +43,27 @@ $result_selecionar_livro = $conexao->query($selecionar_livro);
 include 'menu.php';
 ?>
 <main>
-    <div class="conteiner">
+    <div class="conteiner flex-conteiner">
         <?php
         include 'filtro.php';
         ?>
         <div class="containerLivro">
-            <?php while ($rows_livros = mysqli_fetch_array($result_selecionar_livro)) {
-                echo "<div class='livros'>";
-                echo "<img src=" . $rows_livros['linkImg'] . " alt=''>";
-                echo "<div class='conteudoLivro'>";
-                echo "<div>";
-                echo "<h1 id='tituloLivro'>" . $rows_livros['nomeLivro'] . "</h1>";
-                echo "</div>";
-                echo "<div class='infLivros'>";
-                echo "<div class='lineL'>";
-                echo "<h4>Tipo: " . $rows_livros['tipo'] . "</h4>";
-                echo "<h4>Autor: " . $rows_livros['autor'] . "</h4>";
-                echo "</div>";
-                echo "</div>";
-                echo "</div>";
-                echo "</div>";
-            }
-            ?>
+            <?php while ($rows_livros = mysqli_fetch_array($result_selecionar_livro)) { ?>
+                <div class="livros flex-conteiner justify-self-center">
+                    <img src=" <?php echo $rows_livros['linkImg'] ?> " alt="">
+                    <div class="conteudoLivro flex-conteiner flex-direction-column justify-self-center justify-content-space-around">
+                        <div>
+                            <h1 id="tituloLivro"><?php echo $rows_livros['nomeLivro'] ?></h1>
+                        </div>
+                        <div class='infLivros flex-conteiner justify-content-space-around'>
+                            <div class="lineL">
+                                <h4>Tipo:<?php echo  $rows_livros['tipo'] ?></h4>
+                                <h4>Autor: <?php echo $rows_livros['autor'] ?></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
             <?php
             //verificar a pagina anterior e posterior
             $pagina_anterior = $pagina - 1;

@@ -3,15 +3,25 @@ include 'header.php';
 ?>
 <?php
 include_once('config.php');
-/* $result_pesquisa = "SELECT * FROM acervo WHERE nomeLivro LIKE '%$pesquisar%'"; */
+$tipo = null;
+$filtroTipo = null;
+if (isset($_POST['tipo'])) {
+    $tipo = $_POST['tipo'];
+}
+if ($tipo !== null) {
+    for ($i = 0; $i < count($tipo); $i++) {
+        if (count($tipo) > 1 && $i > 0) {
+            $filtroTipo .= 'OR tipo="' . $tipo[$i] . '" ';
+        } else {
+            $filtroTipo .= 'tipo="' . $tipo[$i] . '" ';
+        }
+    }
+    echo "<p>$filtroTipo</p>";
+}
 
-$sqlInicio = "SELECT * FROM acervo";
+$sql = "SELECT * FROM acervo WHERE $filtroTipo";
 
-$sqlFinal = "WHERE id='1'";
-
-$sqlJucao = $sqlInicio . $sqlFinal;
-
-$resultSql = $conexao->query($sqlJucao);
+$resultSql = $conexao->query($sql);
 
 ?>
 
@@ -19,40 +29,53 @@ $resultSql = $conexao->query($sqlJucao);
 include 'menu.php';
 ?>
 <main>
-    <div class="conteiner">
+    <div class="conteiner flex-conteiner">
         <?php
         include 'filtro.php';
         ?>
         <div class="containerLivro">
-            <?php while ($rows_livros = mysqli_fetch_array($resultSql)) {
-                echo "<img src=" . $rows_livros['linkImg'] . " alt=''>";
-            }
-            ?>
-            <?php
-            //verificar a pagina anterior e posterior
-            $pagina_anterior = $pagina - 1;
-            $pagina_posterior = $pagina + 1;
-            ?>
-            <div class="navPagination">
-                <ul class="pagination">
-                    <li>
-                        <?php
-                        if ($pagina_anterior != 0) { ?>
-                            <a href="../PHP/pesquisar.php?pagina=<?php echo $pagina_anterior ?>">Anterior</a>
-                        <?php } ?>
-                    </li>
-                    <!-- Paginas -->
-                    <?php for ($i = 1; $i < $num_paginas + 1; $i++) { ?>
-                        <li><a href="../PHP/pesquisar.php?pagina=<?php echo $i ?>"><?php echo $i ?></a></li>
-                    <?php } ?>
-                    <!-- Próximo -->
-                    <li>
-                        <?php
-                        if ($pagina_posterior <= $num_paginas) { ?>
-                            <a href="../PHP/pesquisar.php?pagina=<?php echo $pagina_posterior ?>">Próximo</a>
-                        <?php } ?>
-                    </li>
-                </ul>
+            <div class="row">
+                <?php while ($acervo_data = mysqli_fetch_assoc($resultSql)) { ?>
+                    <div class="col-sm-4 col-md-4">
+                        <div class="bookObject">
+                            <div class="imgLivroBiclioteca">
+                                <img src="<?php echo $acervo_data['linkImg']; ?>" alt="...">
+                            </div>
+                            <div class="infBook">
+                                <h1><?php echo $acervo_data['nomeLivro'] ?></h1>
+                                <?php
+                                $idUsuario = $_SESSION['idUsuario'];
+                                $idLivro = $acervo_data['id'];
+                                $sql = "SELECT * FROM `livro` WHERE idusuarios ='$idUsuario' AND idacervo = '$idLivro'";
+
+                                $result = $conexao->query($sql);
+                                if (mysqli_num_rows($result) < 1) {
+                                ?>
+                                    <form action="adicionar.php" method="post">
+                                        <input type="hidden" name="id" value="<?php echo $acervo_data['id'] ?>">
+                                        <button name="submit" id="salvar">
+                                            SALVAR NA SUA LISTA
+                                            <span class="icone">
+                                                <ion-icon name="search-outline"></ion-icon>
+                                            </span>
+                                        </button>
+                                    </form>
+                                <?php } else { ?>
+                                    <form action="update.php" method="post">
+                                        <input type="hidden" name="id" value="<?php echo $acervo_data['id'] ?>">
+                                        <button name="submit" id="submit">
+                                            atualizar cadastro
+                                            <span class="icone">
+                                                <ion-icon name="search-outline"></ion-icon>
+                                            </span>
+                                        </button>
+                                    </form>
+                                <?php } ?>
+
+                            </div>
+                        </div>
+                    </div>
+                <?php } ?>
             </div>
         </div>
         <?php

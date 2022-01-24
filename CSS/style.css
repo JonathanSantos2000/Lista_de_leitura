@@ -1,9 +1,31 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
 * {
   margin: 0 auto;
   padding: 0;
   box-sizing: border-box;
 }
+
+.flex-conteiner {
+  display: flex;
+}
+
+.justify-content-rigth {
+  justify-content: right;
+}
+
+.justify-self-center {
+  justify-self: center;
+}
+
+.flex-direction-column {
+  flex-direction: column;
+}
+
+.justify-content-space-around {
+  justify-content: space-around;
+}
+
 
 body {
   font-family: "Roboto Mono", monospace;
@@ -22,11 +44,6 @@ body {
 }
 
 /*----------Passar a pagina----------*/
-
-.navPagination {
-  display: flex;
-  justify-content: right;
-}
 
 .pagination {
   display: inline-block;

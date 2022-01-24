@@ -3,6 +3,8 @@ include 'header.php';
 ?>
 <?php
 include 'menu.php';
+
+$_SESSION['search'] = "";
 ?>
 <main>
   <div class="conteudo">
@@ -56,8 +58,8 @@ include 'menu.php';
     </p>
   </div>
   <?php
-include 'mais_lidos.php';
-?>
+  include 'mais_lidos.php';
+  ?>
 </main>
 <?php
 include 'footer.php';

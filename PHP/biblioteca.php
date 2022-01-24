@@ -4,7 +4,7 @@ include 'header.php';
 
 <?php
 include_once('config.php');
-
+$_SESSION['search'] = "";
 //Verifica se esta sendo passado na url a pagina atual, senão é atribuido a pagina  
 $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
 
@@ -35,7 +35,7 @@ $result_selecionar_livro = $conexao->query($selecionar_livro);
 include 'menu.php';
 ?>
 <main>
-    <div class="conteiner">
+    <div class="conteiner flex-conteiner">
         <?php
         include 'filtro.php';
         ?>
@@ -49,10 +49,35 @@ include 'menu.php';
                             </div>
                             <div class="infBook">
                                 <h1><?php echo $acervo_data['nomeLivro'] ?></h1>
-                                <form action="adicionar.php" method="post">
-                                    <input type="hidden" name="id" value="<?php echo $acervo_data['id'] ?>">
-                                    <input type="submit" id="salvar" name="salvar" value="SALVAR NA SUA LISTA">
-                                </form>
+                                <?php
+                                $idUsuario = $_SESSION['idUsuario'];
+                                $idLivro = $acervo_data['id'];
+                                $sql = "SELECT * FROM `livro` WHERE idusuarios ='$idUsuario' AND idacervo = '$idLivro'";
+
+                                $result = $conexao->query($sql);
+                                if (mysqli_num_rows($result) < 1) {
+                                ?>
+                                    <form action="adicionar.php" method="post">
+                                        <input type="hidden" name="id" value="<?php echo $acervo_data['id'] ?>">
+                                        <button name="submit" id="salvar">
+                                            SALVAR NA SUA LISTA
+                                            <span class="icone">
+                                                <ion-icon name="search-outline"></ion-icon>
+                                            </span>
+                                        </button>
+                                    </form>
+                                <?php } else { ?>
+                                    <form action="update.php" method="post">
+                                        <input type="hidden" name="id" value="<?php echo $acervo_data['id'] ?>">
+                                        <button name="submit" id="submit">
+                                            atualizar cadastro
+                                            <span class="icone">
+                                                <ion-icon name="search-outline"></ion-icon>
+                                            </span>
+                                        </button>
+                                    </form>
+                                <?php } ?>
+
                             </div>
                         </div>
                     </div>
@@ -64,7 +89,7 @@ include 'menu.php';
             $pagina_posterior = $pagina + 1;
             $max_links = 2;
             ?>
-            <div class="navPagination">
+            <div class="flex-conteiner justify-content-rigth">
                 <ul class="pagination">
                     <!-- Anterior -->
                     <li>

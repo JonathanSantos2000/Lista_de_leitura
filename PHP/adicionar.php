@@ -18,6 +18,7 @@ if ((!isset($_SESSION['username']) == true) and (!isset($_SESSION['password']) =
     $logado = ucfirst($_SESSION['username']);
 }
 
+$_SESSION['search'] ="";
 
 if (isset($_POST['verificar'])) {
     $nome = $_POST['nomeLivro'];

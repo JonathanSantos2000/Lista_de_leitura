@@ -12,6 +12,7 @@ if ((!isset($_SESSION['username']) == true) and (!isset($_SESSION['password']) =
     $logado = ucfirst($_SESSION['username']);
 }
 
+$_SESSION['search'] = "";
 ?>
 
 <?php
@@ -70,21 +71,21 @@ $result_selecionar = $conexao->query($selecionar);
 include 'menu.php';
 ?>
 <main>
-    <div class="conteiner">
+    <div class="conteiner flex-conteiner">
         <?php
         include 'filtro.php';
         ?>
         <div class="containerLivro">
             <?php if ($msg != 'vazio') {
                 while ($acervo_data = mysqli_fetch_assoc($result_selecionar)) { ?>
-                    <div class='livros'>
+                    <div class='livros flex-conteiner justify-self-center'>
                         <img src=" <?php echo  $acervo_data['linkImg'] ?>" alt=''>
-                        <div class='conteudoLivro'>
+                        <div class='conteudoLivro flex-conteiner flex-direction-column justify-self-center justify-content-space-around'>
                             <div>
                                 <h1 id="tituloLivro"><?php echo $acervo_data['nomeLivro'] ?></h1>
                                 <br>
                             </div>
-                            <div class='infLivros'>
+                            <div class='infLivros flex-conteiner justify-content-space-around'>
                                 <div>
                                     <h4>Tipo: <?php echo $acervo_data['tipo'] ?></h4>
                                     <h4>Status: <?php echo $acervo_data['statusLeitura'] ?></h4>
@@ -109,32 +110,32 @@ include 'menu.php';
                                 </div>
                             </div><br>
                             <h1>Marcados como:</h1>
-                                <div class="marcadores">
-                                    <div>
-                                        <img src="https://cdn-icons-png.flaticon.com/512/271/271205.png" alt="Já leram"><br>
-                                        <h3>
-                                            Já leram: <?php echo $acervo_data['lido'] ?>
-                                        </h3>
-                                    </div>
-                                    <div>
-                                        <img src="https://cdn-icons-png.flaticon.com/512/159/159604.png" alt="Lendo">
-                                        <h3>
-                                            Lendo: <?php echo $acervo_data['lendo'] ?>
-                                        </h3>
-                                    </div>
-                                    <div>
-                                        <img src="https://cdn-icons-png.flaticon.com/512/709/709631.png" alt="Querem ler">
-                                        <h3>
-                                            Querem ler: <?php echo $acervo_data['quero_ler'] ?>
-                                        </h3>
-                                    </div>
-                                    <div>
-                                        <img src="https://cdn-icons-png.flaticon.com/512/25/25239.png" alt="Pararam">
-                                        <h3>
-                                            Pararam:<?php echo $acervo_data['parei'] ?>
-                                        </h3>
-                                    </div>
+                            <div class="marcadores">
+                                <div>
+                                    <img src="https://cdn-icons-png.flaticon.com/512/271/271205.png" alt="Já leram"><br>
+                                    <h3>
+                                        Já leram: <?php echo $acervo_data['lido'] ?>
+                                    </h3>
                                 </div>
+                                <div>
+                                    <img src="https://cdn-icons-png.flaticon.com/512/159/159604.png" alt="Lendo">
+                                    <h3>
+                                        Lendo: <?php echo $acervo_data['lendo'] ?>
+                                    </h3>
+                                </div>
+                                <div>
+                                    <img src="https://cdn-icons-png.flaticon.com/512/709/709631.png" alt="Querem ler">
+                                    <h3>
+                                        Querem ler: <?php echo $acervo_data['quero_ler'] ?>
+                                    </h3>
+                                </div>
+                                <div>
+                                    <img src="https://cdn-icons-png.flaticon.com/512/25/25239.png" alt="Pararam">
+                                    <h3>
+                                        Pararam:<?php echo $acervo_data['parei'] ?>
+                                    </h3>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 <?php } ?>
@@ -144,7 +145,7 @@ include 'menu.php';
                 $pagina_posterior = $pagina + 1;
                 $max_links = 2;
                 ?>
-                <div class="navPagination">
+                <div class="flex-conteiner justify-content-rigth">
                     <ul class="pagination">
                         <!-- Anterior -->
                         <li>
