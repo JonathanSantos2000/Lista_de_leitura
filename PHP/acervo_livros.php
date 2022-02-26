@@ -48,12 +48,12 @@ $inicio = ($qt_livros_pg * $pagina) - $qt_livros_pg;
 
 $selecionar_livro = "SELECT * FROM usuarios u
 JOIN livro l
-on u.id = l.idusuarios
+on u.idUsuario = l.idusuarios
 JOIN acervo a
 on a.id = l.idacervo
 JOIN marcador m
 on a.id = m.idacervo
-WHERE u.id='$idUsuario' and a.tipo='livros' limit $inicio, $qt_livros_pg";
+WHERE u.idUsuario='$idUsuario' and a.tipo='livros' limit $inicio, $qt_livros_pg";
 
 $result_selecionar_livro = $conexao->query($selecionar_livro);
 

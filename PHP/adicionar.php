@@ -187,7 +187,7 @@ include 'menu.php';
                         <form action="validarRelacionamento.php" method="post">
                             <fieldset>
                                 <legend>
-                                    <h1><b>Cadastre o livro</b></h1>
+                                    <h1><b>Salve o livro</b></h1>
                                 </legend>
                                 <br>
                                 <div class="existe">
@@ -256,6 +256,7 @@ include 'menu.php';
                         </form>
                     </div>
                 <?php } else { ?>
+                    <!-- Formulario pelo nome do livro e nome do Autor -->
                     <div class="pesquisarLivro">
                         <form action="adicionar.php" method="post">
                             <fieldset class="fieldsetVerificar">
@@ -277,6 +278,7 @@ include 'menu.php';
                             </fieldset>
                         </form>
                     </div>
+                    <!-- Fim do  formulario-->
                 <?php } ?>
             </div>
         <?php } else { ?>

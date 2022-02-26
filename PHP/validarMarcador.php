@@ -37,7 +37,7 @@ if (mysqli_num_rows($result) < 1) {
 } else {
 
     while ($acervo_data = mysqli_fetch_assoc($result)) {
-        $idMarcador = $acervo_data['id'];
+        $idMarcador = $acervo_data['idMarcador'];
         $lido = $acervo_data['lido'];
         $lendo = $acervo_data['lendo'];
         $queroLer = $acervo_data['quero_ler'];

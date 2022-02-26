@@ -59,21 +59,21 @@ include 'menu.php';
                                 ?>
                                     <form action="adicionar.php" method="post">
                                         <input type="hidden" name="id" value="<?php echo $acervo_data['id'] ?>">
-                                        <button name="submit" id="salvar">
-                                            SALVAR NA SUA LISTA
+                                        <button name="salvar" id="salvar">
                                             <span class="icone">
-                                                <ion-icon name="search-outline"></ion-icon>
+                                                <ion-icon name="add-circle-outline"></ion-icon>
                                             </span>
+                                            SALVAR NA SUA LISTA
                                         </button>
                                     </form>
                                 <?php } else { ?>
                                     <form action="update.php" method="post">
                                         <input type="hidden" name="id" value="<?php echo $acervo_data['id'] ?>">
-                                        <button name="submit" id="submit">
-                                            atualizar cadastro
+                                        <button name="submit-biblioteca" id="submit-biblioteca">
                                             <span class="icone">
-                                                <ion-icon name="search-outline"></ion-icon>
+                                                <ion-icon name="add-circle-outline"></ion-icon>
                                             </span>
+                                            ATUALIZAR CADASTRO
                                         </button>
                                     </form>
                                 <?php } ?>

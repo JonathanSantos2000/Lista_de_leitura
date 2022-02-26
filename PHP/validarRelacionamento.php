@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
                 /* echo "livro lido em site web"; */
                 if ($_POST["linkWeb"] != "") {
                         $localLido = $_POST['linkWeb'];
-                       /*  echo "<br>" . $link; */
+                        /*  echo "<br>" . $link; */
                 } else {
                         /* echo "<br> Por favor coloque o link da pagina "; */
                 }
@@ -41,7 +41,7 @@ if (isset($_POST['submit'])) {
         $idUsuario = $_SESSION["idUsuario"];
         $localLido = $_SESSION['localLido'];
         $status = $_SESSION['status'];
-        $pagsCaps = 600;
+        $pagsCaps = $_SESSION['pagsCaps'];
 }
 
 

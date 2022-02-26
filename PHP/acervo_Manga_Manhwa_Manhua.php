@@ -25,7 +25,7 @@ $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
 //selecionar todos os livros do acervo lidos pela pessoa
 $selecionar_acervo = "SELECT * FROM usuarios u
 JOIN livro l
-on u.id = l.idusuarios
+on u.idUsuario = l.idusuarios
 JOIN acervo a
 on a.id = l.idacervo
 JOIN marcador m
