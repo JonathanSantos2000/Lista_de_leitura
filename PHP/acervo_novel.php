@@ -1,5 +1,5 @@
 <?php
-include 'header.php';
+include '../PHP/include/header.php';
 ?>
 
 <?php
@@ -25,12 +25,12 @@ $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
 //selecionar todos os livros do acervo lidos pela pessoa
 $selecionar_acervo = "SELECT * FROM usuarios u
 JOIN livro l
-on u.id = l.idusuarios
+on u.idUsuario = l.idusuarios
 JOIN acervo a
 on a.id = l.idacervo
 JOIN marcador m
 on a.id = m.idacervo
-WHERE u.id='$idUsuario' and a.tipo='novels'";
+WHERE u.idUsuario ='$idUsuario' and a.tipo='novels'";
 
 $result_selecionar_acervo = $conexao->query($selecionar_acervo);
 
@@ -55,12 +55,12 @@ $inicio = ($qt_livros_pg * $pagina) - $qt_livros_pg;
 
 $selecionar = "SELECT * FROM usuarios u
 JOIN livro l
-on u.id = l.idusuarios
+on u.idUsuario = l.idusuarios
 JOIN acervo a
 on a.id = l.idacervo
 JOIN marcador m
 on a.id = m.idacervo
-WHERE u.id='$idUsuario' and a.tipo='novels'
+WHERE u.idUsuario='$idUsuario' and a.tipo='novels'
 limit $inicio, $qt_livros_pg";
 
 $result_selecionar = $conexao->query($selecionar);
@@ -68,12 +68,12 @@ $result_selecionar = $conexao->query($selecionar);
 ?>
 
 <?php
-include 'menu.php';
+include '../PHP/include/menu.php';
 ?>
 <main>
     <div class="conteiner flex-conteiner">
         <?php
-        include 'filtro.php';
+        include '../PHP/include/filtro.php';
         ?>
         <div class="containerLivro">
             <?php if ($msg != 'vazio') {
@@ -110,7 +110,7 @@ include 'menu.php';
                                 </div>
                             </div><br>
                             <h1>Marcados como:</h1>
-                            <div class="marcadores">
+                            <div class="marcadores flex-conteiner">
                                 <div>
                                     <img src="https://cdn-icons-png.flaticon.com/512/271/271205.png" alt="Já leram"><br>
                                     <h3>
@@ -192,10 +192,10 @@ include 'menu.php';
         </div>
 
         <?php
-        include 'mais_lidos.php';
+        include '../PHP/include/mais_lidos.php';
         ?>
     </div>
 </main>
 <?php
-include 'footer.php';
+include '../PHP/include/footer.php';
 ?>

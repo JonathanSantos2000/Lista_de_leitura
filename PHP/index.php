@@ -1,8 +1,8 @@
 <?php
-include 'header.php';
+include '../PHP/include/header.php';
 ?>
 <?php
-include 'menu.php';
+include '../PHP/include/menu.php';
 
 $_SESSION['search'] = "";
 ?>
@@ -58,9 +58,9 @@ $_SESSION['search'] = "";
     </p>
   </div>
   <?php
-  include 'mais_lidos.php';
+  include '../PHP/include/mais_lidos.php';
   ?>
 </main>
 <?php
-include 'footer.php';
+include '../PHP/include/footer.php';
 ?>

@@ -1,5 +1,5 @@
 <?php
-include 'header.php';
+include '../PHP/include/header.php';
 ?>
 
 <?php
@@ -32,31 +32,35 @@ $result_selecionar_livro = $conexao->query($selecionar_livro);
 
 ?>
 <?php
-include 'menu.php';
+include '../PHP/include/menu.php';
 ?>
 <main>
     <div class="conteiner flex-conteiner">
         <?php
-        include 'filtro.php';
+        include '../PHP/include/filtro.php';
         ?>
         <div class="containerLivro">
-            <div class="row">
-                <?php while ($acervo_data = mysqli_fetch_assoc($result_selecionar_livro)) { ?>
-                    <div class="col-sm-4 col-md-4">
-                        <div class="bookObject">
-                            <div class="imgLivroBiclioteca">
+            <fieldset class="container">
+                <legend id="legendLivro">
+                    <h1 id="titulo"><b>Todos os livros</b></h1>
+                </legend>
+                <div class="boxBB">
+                    <?php while ($acervo_data = mysqli_fetch_assoc($result_selecionar_livro)) { ?>
+                        <div class="card">
+                            <div class="imagem">
                                 <img src="<?php echo $acervo_data['linkImg']; ?>" alt="...">
                             </div>
-                            <div class="infBook">
-                                <h1><?php echo $acervo_data['nomeLivro'] ?></h1>
-                                <?php
-                                $idUsuario = $_SESSION['idUsuario'];
-                                $idLivro = $acervo_data['id'];
-                                $sql = "SELECT * FROM `livro` WHERE idusuarios ='$idUsuario' AND idacervo = '$idLivro'";
+                            <div class="texto">
+                                <div class="pra">
+                                    <h5><?php echo $acervo_data['nomeLivro'] ?></h5>
+                                    <p style="text-align: center;">
+                                        <?php
+                                        $idUsuario = $_SESSION['idUsuario'];
+                                        $idLivro = $acervo_data['id'];
+                                        $sql = "SELECT * FROM `livro` WHERE idusuarios ='$idUsuario' AND idacervo = '$idLivro'";
 
-                                $result = $conexao->query($sql);
-                                if (mysqli_num_rows($result) < 1) {
-                                ?>
+                                        $result = $conexao->query($sql);
+                                        if (mysqli_num_rows($result) < 1) { ?>
                                     <form action="adicionar.php" method="post">
                                         <input type="hidden" name="id" value="<?php echo $acervo_data['id'] ?>">
                                         <button name="salvar" id="salvar">
@@ -77,12 +81,16 @@ include 'menu.php';
                                         </button>
                                     </form>
                                 <?php } ?>
-
+                                </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                <?php } ?>
-            </div>
+                    <?php } ?>
+                </div>
+            </fieldset>
+
+
+
             <?php
             //verificar a pagina anterior e posterior
             $pagina_anterior = $pagina - 1;
@@ -132,12 +140,12 @@ include 'menu.php';
             </div>
         </div>
         <?php
-        include 'mais_lidos.php';
+        include '../PHP/include/mais_lidos.php';
         ?>
     </div>
 </main>
 
 
 <?php
-include 'footer.php';
+include '../PHP/include/footer.php';
 ?>

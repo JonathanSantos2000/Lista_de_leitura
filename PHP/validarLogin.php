@@ -20,8 +20,8 @@ if (isset($_POST['submit'])) {
         $_SESSION['password'] = $password;
 
         $fetch = mysqli_fetch_object($result);
-        $_SESSION["idUsuario"] = $fetch->id;
-        
+        $_SESSION["idUsuario"] = $fetch->idUsuario;
+        echo $_SESSION["idUsuario"];
         header('Location: index.php');
     }
 } else {

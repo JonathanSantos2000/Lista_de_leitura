@@ -1,8 +1,8 @@
 <?php
-include 'header.php';
+include '../PHP/include/header.php';
 ?>
 <?php
-include 'menu.php';
+include '../PHP/include/menu.php';
 ?>
 <main>
     <div class="conteudoBox">
@@ -34,5 +34,5 @@ include 'menu.php';
     </div>
 </main>
 <?php
-include 'footer.php';
+include '../PHP/include/footer.php';
 ?>

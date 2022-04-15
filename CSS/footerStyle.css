@@ -1,57 +1,51 @@
 footer {
-    margin-top: 20px;
-    display: flex;
-}
-
-.conteiner_footer {
+    position: relative;
+    width: 100%;
+    height: 400px;
     background-color: dodgerblue;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    width: 100%;
+    justify-content: center;
+    margin-top: 20px;
 }
 
-/* ---------- css footer lado inicio ---------- */
-
-.inicio-footer {
-    margin-left: 10px;
+footer p:nth-child(1) {
+    font-size: 30px;
+    color: white;
+    margin-bottom: 20px;
+    font-weight: bold;
 }
 
-.inicio-footer p {
-    margin: 10px;
-    font-size: 20px;
+footer p:nth-child(2) {
+    color: white;
+    font-size: 17px;
+    width: 500px;
+    text-align: center;
+    line-height: 26px;
 }
 
-/* ---------- css footer meio ---------- */
-
-.meio-footer {
-    border: 2px solid #fff;
-}
-
-/* ---------- css footer lado final ---------- */
-
-.final-footer {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding: 0;
-    margin-right: 0;
-}
-
-.infRedesContato{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin: 0;
-}
 .icone-contato {
     margin: 15px;
     max-height: 40px;
     max-width: 40px;
 }
 
+.infRedesContato {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+}
+
 .icone-contato:hover {
     border-radius: 460px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.end {
+    position: absolute;
+    color: #740a2b;
+    bottom: 35px;
+    font-size: 14px;
 }

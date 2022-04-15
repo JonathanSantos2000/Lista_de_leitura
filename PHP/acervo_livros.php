@@ -1,5 +1,5 @@
 <?php
-include 'header.php';
+include '../PHP/include/header.php';
 ?>
 
 <?php
@@ -11,7 +11,7 @@ if ((!isset($_SESSION['username']) == true) and (!isset($_SESSION['password']) =
 } else {
     $logado = ucfirst($_SESSION['username']);
 }
-$_SESSION['search'] ="";
+$_SESSION['search'] = "";
 ?>
 
 <?php
@@ -24,12 +24,12 @@ $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
 //selecionar todos os livros do acervo lidos pela pessoa
 $selecionar_acervo = "SELECT * FROM usuarios u
 JOIN livro l
-on u.id = l.idusuarios
+on u.idUsuario = l.idusuarios
 JOIN acervo a
 on a.id = l.idacervo
 JOIN marcador m
 on a.id = m.idacervo
-WHERE u.id='$idUsuario' and a.tipo='livros'";
+WHERE u.idUsuario='$idUsuario' and a.tipo='livros'";
 $result_selecionar_acervo = $conexao->query($selecionar_acervo);
 
 //Contar o total de livros do acervo cadastrados pela pessoa
@@ -60,12 +60,12 @@ $result_selecionar_livro = $conexao->query($selecionar_livro);
 ?>
 
 <?php
-include 'menu.php';
+include '../PHP/include/menu.php';
 ?>
 <main>
     <div class="conteiner flex-conteiner">
         <?php
-        include 'filtro.php';
+        include '../PHP/include/filtro.php';
         ?>
         <div class="containerLivro">
             <?php while ($acervo_data = mysqli_fetch_assoc($result_selecionar_livro)) { ?>
@@ -179,12 +179,12 @@ include 'menu.php';
             </div>
         </div>
         <?php
-        include 'mais_lidos.php';
+        include '../PHP/include/mais_lidos.php';
         ?>
     </div>
 </main>
 
 
 <?php
-include 'footer.php';
+include '../PHP/include/footer.php';
 ?>

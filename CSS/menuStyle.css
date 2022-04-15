@@ -11,6 +11,8 @@ main {
 	justify-content: space-between;
 	margin: 0;
 	padding: 0;
+	z-index: 3;
+
 }
 
 /* ---------- css menu lado inicio ---------- */
@@ -62,7 +64,7 @@ input::placeholder {
 /* ---------- css menu lado final ---------- */
 
 .final_menu {
-	margin:0%;
+	margin: 0%;
 	margin-right: 10px;
 }
 
