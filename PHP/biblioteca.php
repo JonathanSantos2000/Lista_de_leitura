@@ -54,13 +54,7 @@ include '../PHP/include/menu.php';
                                 <div class="pra">
                                     <h5><?php echo $acervo_data['nomeLivro'] ?></h5>
                                     <p style="text-align: center;">
-                                        <?php
-                                        $idUsuario = $_SESSION['idUsuario'];
-                                        $idLivro = $acervo_data['id'];
-                                        $sql = "SELECT * FROM `livro` WHERE idusuarios ='$idUsuario' AND idacervo = '$idLivro'";
-
-                                        $result = $conexao->query($sql);
-                                        if (mysqli_num_rows($result) < 1) { ?>
+                                        <?php if ($_SESSION['idUsuario'] == "saiu") { ?>
                                     <form action="adicionar.php" method="post">
                                         <input type="hidden" name="id" value="<?php echo $acervo_data['id'] ?>">
                                         <button name="salvar" id="salvar">
@@ -70,16 +64,32 @@ include '../PHP/include/menu.php';
                                             SALVAR NA SUA LISTA
                                         </button>
                                     </form>
-                                <?php } else { ?>
-                                    <form action="update.php" method="post">
-                                        <input type="hidden" name="id" value="<?php echo $acervo_data['id'] ?>">
-                                        <button name="submit-biblioteca" id="submit-biblioteca">
-                                            <span class="icone">
-                                                <ion-icon name="add-circle-outline"></ion-icon>
-                                            </span>
-                                            ATUALIZAR CADASTRO
-                                        </button>
-                                    </form>
+                                    <?php    } else {
+                                            $idUsuario = $_SESSION['idUsuario'];
+                                            $idLivro = $acervo_data['id'];
+                                            $sql = "SELECT * FROM `livro` WHERE idusuarios ='$idUsuario' AND idacervo = '$idLivro'";
+                                            $result = $conexao->query($sql);
+                                            if (mysqli_num_rows($result) < 1) { ?>
+                                        <form action="adicionar.php" method="post">
+                                            <input type="hidden" name="id" value="<?php echo $acervo_data['id'] ?>">
+                                            <button name="salvar" id="salvar">
+                                                <span class="icone">
+                                                    <ion-icon name="add-circle-outline"></ion-icon>
+                                                </span>
+                                                SALVAR NA SUA LISTA
+                                            </button>
+                                        </form>
+                                    <?php } else { ?>
+                                        <form action="update.php" method="post">
+                                            <input type="hidden" name="id" value="<?php echo $acervo_data['id'] ?>">
+                                            <button name="submit-biblioteca" id="submit-biblioteca">
+                                                <span class="icone">
+                                                    <ion-icon name="add-circle-outline"></ion-icon>
+                                                </span>
+                                                ATUALIZAR CADASTRO
+                                            </button>
+                                        </form>
+                                    <?php } ?>
                                 <?php } ?>
                                 </p>
                                 </div>

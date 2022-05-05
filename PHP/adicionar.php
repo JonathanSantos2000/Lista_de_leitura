@@ -1,5 +1,5 @@
 <?php
-include 'header.php';
+include '../PHP/include/header.php';
 ?>
 
 <?php
@@ -18,7 +18,7 @@ if ((!isset($_SESSION['username']) == true) and (!isset($_SESSION['password']) =
     $logado = ucfirst($_SESSION['username']);
 }
 
-$_SESSION['search'] ="";
+$_SESSION['search'] = "";
 
 if (isset($_POST['verificar'])) {
     $nome = $_POST['nomeLivro'];
@@ -65,7 +65,7 @@ while ($acervo_data = mysqli_fetch_assoc($resultLivroExiste)) {
 ?>
 
 <?php
-include 'menu.php';
+include '../PHP/include/menu.php';
 ?>
 <main>
     <div class="conteudoBox">
@@ -285,7 +285,7 @@ include 'menu.php';
             <div class="containerLivro">
                 <div class="maisDeUmResultado">
                     <?php while ($rows_livros = mysqli_fetch_array($result)) { ?>
-                        <div class="livros">
+                        <div class='livros flex-conteiner justify-self-center'>
                             <img src=" <?php echo $rows_livros['linkImg']  ?>" alt="">
                             <div class="conteudoLivro">
                                 <div class="ptSuperior">
@@ -300,7 +300,6 @@ include 'menu.php';
                                             </button>
                                         </form>
                                     </div>
-
                                 </div>
                                 <div class="infLivros">
                                     <div class="lineL">
@@ -309,7 +308,7 @@ include 'menu.php';
                                     </div>
                                 </div>
                                 <h1>Marcados como:</h1>
-                                <div class="marcadores">
+                                <div class="marcadores flex-conteiner">
                                     <div>
                                         <img src="https://cdn-icons-png.flaticon.com/512/271/271205.png" alt="Já leram"><br>
                                         <h3>
@@ -344,5 +343,5 @@ include 'menu.php';
     </div>
 </main>
 <?php
-include 'footer.php';
+include '../PHP/include/footer.php';
 ?>

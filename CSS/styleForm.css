@@ -33,6 +33,7 @@
 fieldset {
   border: 3px solid dodgerblue;
   padding: 5px;
+  height: 100%;
 }
 
 legend {
@@ -45,12 +46,6 @@ legend {
 
 .inputBox {
   position: relative;
-}
-
-/* inicio local lido */
-
-#online, #fisico {
-  display: none;
 }
 
 select {
@@ -154,6 +149,7 @@ select::-ms-expand {
   font-size: 15px;
   cursor: pointer;
   border-radius: 10px;
+  margin-bottom: 30px;
 }
 
 #submit:hover {

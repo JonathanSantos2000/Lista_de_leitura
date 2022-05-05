@@ -8,7 +8,7 @@ include '../PHP/include/menu.php';
     <div class="conteudoBox">
         <div class="boxRegistro">
             <form action="validarRegistro.php" method="post">
-                <fieldset>
+                <fieldset class="fieldsetCadastrar">
                     <legend><b>
                             <h1>Cadastre-se</h1>
                         </b></legend>
