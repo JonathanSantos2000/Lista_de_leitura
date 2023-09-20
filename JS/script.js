@@ -1,8 +1,10 @@
-$(document).ready(function () {
-    $('#select').on('change', function () {
-        var selecValor = '#'+$(this).val();
-        $('#pai').children('div').hide();
-
-        $('#pai').children(selecValor).show();
-    });
-});
+function toggleAba() {
+    console.log("opa");
+    var aba = document.getElementById("minhaAba");
+    if (aba.style.display === "none") {
+      aba.style.display = "block";
+    } else {
+      aba.style.display = "none";
+    }
+  }
+  

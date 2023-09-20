@@ -1,8 +1,10 @@
 <?php
 $logado = '';
+
 if ((!isset($_SESSION['username']) == true) and (!isset($_SESSION['password']) == true)) {
 } else {
   $logado = ucfirst($_SESSION['username']);
+  $nvusuario = $_SESSION["nvUsuario"];
 }
 ?>
 
@@ -13,16 +15,7 @@ if ((!isset($_SESSION['username']) == true) and (!isset($_SESSION['password']) =
     </a>
   </div>
   <div class="meio_menu">
-    <form action="../PHP/pesquisar.php" method="post">
-      <div class="search-box">
-        <input type="text" name="search-txt" class="search-txt" placeholder="pesquisar">
-        <button name="submit" class="search-icone">
-          <span class="icone">
-            <ion-icon name="search-outline"></ion-icon>
-          </span>
-        </button>
-      </div>
-    </form>
+
   </div>
   <div class="final_menu">
     <ul class="menu">
@@ -52,14 +45,16 @@ if ((!isset($_SESSION['username']) == true) and (!isset($_SESSION['password']) =
           </a>
         </li>
       <?php } else { ?>
-        <li>
-          <a href="../PHP/adicionar.php">
-            <span class="icone">
-              <ion-icon name="add-circle-outline"></ion-icon>
-            </span>
-            Adicionar
-          </a>
-        </li>
+        <?php if ($nvusuario == 1) { ?>
+          <li>
+            <a href="../PHP/adicionar.php">
+              <span class="icone">
+                <ion-icon name="add-circle-outline"></ion-icon>
+              </span>
+              Adicionar
+            </a>
+          </li>
+        <?php } ?>
         <li class="usuario">
           <a href="#">
             <span class="icone">
@@ -69,46 +64,12 @@ if ((!isset($_SESSION['username']) == true) and (!isset($_SESSION['password']) =
           </a>
           <ul class="sub-menu">
             <li>
-              <a href="#">
+              <a href=" ../PHP/acervo_livros.php">
                 <span class="icone">
                   <ion-icon name="library-outline"></ion-icon>
                 </span>
-                Acervo
+                Seus livros
               </a>
-              <ul class="collection">
-                <li>
-                  <a href="../PHP/acervo_livros.php">
-                    <span class="icone">
-                      <ion-icon name="book-outline"></ion-icon>
-                    </span>
-                    Livros
-                  </a>
-                </li>
-                <li>
-                  <a href="../PHP/acervo_novel.php">
-                    <span class="icone">
-                      <ion-icon name="book-outline"></ion-icon>
-                    </span>
-                    Novels
-                  </a>
-                </li>
-                <li>
-                  <a href="../PHP/acervo_Manga_Manhwa_Manhua.php">
-                    <span class="icone">
-                      <ion-icon name="book-outline"></ion-icon>
-                    </span>
-                    Manga <br>
-                    <span class="icone">
-                      <ion-icon name="book-outline"></ion-icon>
-                    </span>
-                    Manhwa <br>
-                    <span class="icone">
-                      <ion-icon name="book-outline"></ion-icon>
-                    </span>
-                    Manhua
-                  </a>
-                </li>
-              </ul>
             </li>
             <li>
               <a href="../PHP/sair.php">

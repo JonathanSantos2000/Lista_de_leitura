@@ -43,6 +43,13 @@ body {
   padding: 25px;
 }
 
+.titulo-p {
+  overflow-wrap: break-word;
+  font-size: 25px;
+}
+
+
+
 /*----------Passar a pagina----------*/
 
 .pagination {
@@ -133,4 +140,18 @@ body {
 .pagination-sm>li:last-child>a, .pagination-sm>li:last-child>span {
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
+}
+
+
+
+/*  */
+
+/* Estilos para a aba */
+.abaEscondida {
+  display: none;
+  background-color: #f1f1f1;
+  padding: 10px;
+  margin-top: 10px;
+  width: 350px;
+
 }

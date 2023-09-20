@@ -1,0 +1,139 @@
+
+.conteudoPgLivro {
+    background: linear-gradient(230.65deg, #499cfe 27.49%, #9cc8fc 83.19%);
+    box-shadow: 2px 2px 4px rgba(16, 16, 16, 0.42);
+    color: #1c1c1c;
+    min-height: 600px;
+    width: 100%;
+    margin: 70px 10px 10px 10px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+  }
+  #legendLivro{
+    color: #fff;
+  }
+  .contPgLivro {
+    display: flex;
+    justify-content: space-between;
+    min-height: 600px;
+    width: 100%;
+    margin: 0 0 10px 0;
+    padding: 0;
+  }
+  
+  .imgPgLivro {
+    width: 25%;
+    min-height: 600px;
+    margin: 0;
+  }
+  
+  .imgPgLivro img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .textoPgLivro {
+    width: 73%;
+    min-height: 600px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  
+  }
+  
+  .titlePgLivro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0 15px 0;
+  }
+  
+  .descPgLivro {
+    width: 100%;
+    height: 20%;
+    display: flex;
+  }
+  
+  .carrosselIcons {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .titleIconsPgLivro {
+    width: 100%;
+    height: 20%;
+    text-align: center;
+    margin: 0;
+  }
+  
+  .titleIconsPgLivro h5 {
+    color: #fff;
+  }
+  
+  .iconPgLivro {
+    width: 100%;
+    height: 60%;
+    margin: 0;
+    text-align: center;
+  }
+  
+  .iconPgLivro .icone {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .subTitleIconsPgLivro {
+    width: 100%;
+    height: 20%;
+    text-align: center;
+    margin: 0;
+  }
+  
+  .subTitleIconsPgLivro h5 {
+    color: #fff;
+  }
+  
+  .sinopsePgLivro {
+    width: 100%;
+    height: 70%;
+    margin: 15px 0 0 0;
+    padding: 15px 10px 0 10px;
+    border-top: 1px solid #041832;
+    color: #fff;
+  }
+  .sinopsePgLivro p{
+    text-align: justify;
+    font-size: medium;
+  }
+  
+  .comentarioPgLivro {
+    min-height: 600px;
+    width: 100%;
+  }
+  
+  .mark{
+    width: 100%;
+  }
+  
+  .marcadores{
+    display: flex;
+    width: 100%;
+    border-top: 1px solid #041832;
+    
+  }
+  
+  .marcadores img {
+    margin: 15px;
+    max-height: 40px;
+    max-width: 40px;
+  }

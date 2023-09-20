@@ -1,42 +1,27 @@
 <?php
 include '../PHP/include/header.php';
-?>
-
-<?php
-$logado = '';
-if ((!isset($_SESSION['username']) == true) and (!isset($_SESSION['password']) == true)) {
-    unset($_SESSION['username']);
-    unset($_SESSION['password']);
-    header('Location: login.php');
-} else {
-    $logado = ucfirst($_SESSION['username']);
-}
-$_SESSION['search'] = "";
-?>
-
-<?php
 include_once('config.php');
-$idUsuario = $_SESSION['idUsuario'];
+$id_usuario = 0;
+if ((!isset($_SESSION['username']) == true) and (!isset($_SESSION['password']) == true)) {
+} else {
+    $id_usuario = $_SESSION["idUsuario"];
+}
 
 //Verifica se esta sendo passado na url a pagina atual, senão é atribuido a pagina  
 $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
 
 //selecionar todos os livros do acervo lidos pela pessoa
-$selecionar_acervo = "SELECT * FROM usuarios u
-JOIN livro l
-on u.idUsuario = l.idusuarios
-JOIN acervo a
-on a.id = l.idacervo
-JOIN marcador m
-on a.id = m.idacervo
-WHERE u.idUsuario='$idUsuario' and a.tipo='livros'";
+$selecionar_acervo = "SELECT * FROM marcador M 
+INNER JOIN acervo A
+ON M.id_acervo = A.id_acervo
+WHERE M.id_usuario = $id_usuario";
 $result_selecionar_acervo = $conexao->query($selecionar_acervo);
 
 //Contar o total de livros do acervo cadastrados pela pessoa
 $total_Livros = mysqli_num_rows($result_selecionar_acervo);
 
 //Setar a quantidade de livros por pagina
-$qt_livros_pg = 5;
+$qt_livros_pg = 15;
 
 //calcular o numero de paginas
 $num_paginas = ceil($total_Livros / $qt_livros_pg);
@@ -46,90 +31,38 @@ $inicio = ($qt_livros_pg * $pagina) - $qt_livros_pg;
 
 //selecionar os cursos a serem apresentados na pagina
 
-$selecionar_livro = "SELECT * FROM usuarios u
-JOIN livro l
-on u.idUsuario = l.idusuarios
-JOIN acervo a
-on a.id = l.idacervo
-JOIN marcador m
-on a.id = m.idacervo
-WHERE u.idUsuario='$idUsuario' and a.tipo='livros' limit $inicio, $qt_livros_pg";
+$selecionar_livro = "SELECT * FROM marcador M 
+INNER JOIN acervo A
+ON M.id_acervo = A.id_acervo
+WHERE M.id_usuario = $id_usuario
+limit $inicio, $qt_livros_pg";
 
 $result_selecionar_livro = $conexao->query($selecionar_livro);
-
 ?>
 
 <?php
 include '../PHP/include/menu.php';
 ?>
 <main>
-    <div class="conteiner flex-conteiner">
-        <?php
-        include '../PHP/include/filtro.php';
-        ?>
-        <div class="containerLivro">
-            <?php while ($acervo_data = mysqli_fetch_assoc($result_selecionar_livro)) { ?>
-                <div class='livros flex-conteiner justify-self-center'>
-                    <img src=" <?php echo  $acervo_data['linkImg'] ?>" alt=''>
-                    <div class='conteudoLivro flex-conteiner flex-direction-column justify-self-center justify-content-space-around'>
-                        <div>
-                            <h1 id="tituloLivro"><?php echo $acervo_data['nomeLivro'] ?></h1>
-                            <br>
+    <section class="conteinerMarcacoes">
+        <fieldset>
+            <legend>Minhas Marcações</legend>
+            <div class="livrosMarcacoes">
+                <?php while ($acervo_data = mysqli_fetch_assoc($result_selecionar_livro)) { ?>
+                    <div class="cardBiblio">
+                        <div class="imagem">
+                            <img src="<?php echo $acervo_data['url_img']; ?>" alt="...">
                         </div>
-                        <div class='infLivros flex-conteiner justify-content-space-around'>
-                            <div>
-                                <h4>Tipo: <?php echo $acervo_data['tipo'] ?></h4>
-                                <h4>Status: <?php echo $acervo_data['statusLeitura'] ?></h4>
-                                <h4>Nº paginas lidas: <?php echo $acervo_data['pagsCaps'] ?></h4>
-                                <h4>Autor: <?php echo $acervo_data['autor'] ?></h4>
-                                <?php if ($acervo_data['link'] != 'fisico') { ?>
-                                    <h4>Local de leitura:<a href="#<?php echo $acervo_data['link'] ?>">Leia aqui</a></h4>
-                                <?php } else { ?>
-                                    <h4>Lido em livro físicos</h4>
-                                <?php } ?>
-                            </div>
-                            <div>
-                                <form action="update.php" method="post">
-                                    <input type="hidden" name="id" value="<?php echo $acervo_data['idacervo'] ?>">
-                                    <button name="submit" id="submit">
-                                        atualizar cadastro
-                                        <span class="icone">
-                                            <ion-icon name="search-outline"></ion-icon>
-                                        </span>
-                                    </button>
-                                </form>
-                            </div>
-                        </div><br>
-                        <h1>Marcados como:</h1>
-                        <div class="marcadores flex-conteiner">
-                            <div>
-                                <img src="https://cdn-icons-png.flaticon.com/512/271/271205.png" alt="Já leram"><br>
-                                <h3>
-                                    Já leram: <?php echo $acervo_data['lido'] ?>
-                                </h3>
-                            </div>
-                            <div>
-                                <img src="https://cdn-icons-png.flaticon.com/512/159/159604.png" alt="Lendo">
-                                <h3>
-                                    Lendo: <?php echo $acervo_data['lendo'] ?>
-                                </h3>
-                            </div>
-                            <div>
-                                <img src="https://cdn-icons-png.flaticon.com/512/709/709631.png" alt="Querem ler">
-                                <h3>
-                                    Querem ler: <?php echo $acervo_data['quero_ler'] ?>
-                                </h3>
-                            </div>
-                            <div>
-                                <img src="https://cdn-icons-png.flaticon.com/512/25/25239.png" alt="Pararam">
-                                <h3>
-                                    Pararam:<?php echo $acervo_data['parei'] ?>
-                                </h3>
+                        <div class="texto">
+                            <div class="pra">
+                                <a href="../PHP/livro.php?id=<?php echo $acervo_data['id_acervo'] ?>">
+                                    <?php echo $acervo_data['nm_titulo'] ?>
+                                </a>
                             </div>
                         </div>
                     </div>
-                </div>
-            <?php } ?>
+                <?php } ?>
+            </div>
             <?php
             //verificar a pagina anterior e posterior
             $pagina_anterior = $pagina - 1;
@@ -177,13 +110,9 @@ include '../PHP/include/menu.php';
                     </li>
                 </ul>
             </div>
-        </div>
-        <?php
-        include '../PHP/include/mais_lidos.php';
-        ?>
-    </div>
+        </fieldset>
+    </section>
 </main>
-
 
 <?php
 include '../PHP/include/footer.php';
